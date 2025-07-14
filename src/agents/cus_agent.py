@@ -1,7 +1,8 @@
 import sys    
 import os  
-sys.path.append(r"D:\OneDrive - Coforge Limited\Desktop\ForgeX\agent Chat\module")
-
+llm_path = os.path.abspath("../llm")
+if llm_path not in sys.path:
+    sys.path.append(llm_path)
 from mcp.server.fastmcp import FastMCP
 from customllm import CustomLLM 
 

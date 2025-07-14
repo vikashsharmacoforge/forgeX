@@ -1,17 +1,22 @@
 import sys    
 import os  
-import asyncio
-sys.path.append(os.path.abspath("../module"))
-from customllm import CustomLLM
 from mcp.server.fastmcp import FastMCP
 from typing import Any
-from clients.stmhttp_client import MCPClient
+
+llm_path = os.path.abspath("../llm")
+if llm_path not in sys.path:
+    sys.path.append(llm_path)
+clients_path = os.path.abspath("../mcp-clients")
+if clients_path not in sys.path:
+    sys.path.append(clients_path)
+utils = os.path.abspath("../utils")
+if utils not in sys.path:
+    sys.path.append(utils)
+from customllm import CustomLLM
+from stmhttp_client import MCPClient
 from stm_context_manager import store_messages , get_conversation
-# from customllm import CustomLLM
-# from langchain_mcp_adapters.client import MultiServerMCPClient
-# from langchain_openai import AzureChatOpenAI , AzureOpenAI
+
 # from langchain_mcp_adapters.tools import convert_mcp_tool_to_langchain_tool , load_mcp_tools
-# from langchain.agents.react.agent import create_react_agent
 # from langchain_core.prompts import PromptTemplate
 
 msgs = 5
@@ -25,8 +30,10 @@ mcp = FastMCP(name = "Project Requirements Get Assistant",
 llm = CustomLLM()
 llm_classifier = CustomLLM()
 
+# from langchain_openai import AzureChatOpenAI , AzureOpenAI
 # llm = AzureOpenAI()  
 
+# from langchain_mcp_adapters.client import MultiServerMCPClient
 # client = MultiServerMCPClient({
 #     "user_stories_server": {
 #             # Make sure you start your weather server on port 8000
@@ -76,7 +83,7 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
         return {"error": "Failed to retrieve conversation"}
 
     
-    response = llm.invoke(input = prompt , sys_prompt = sys_prompt )
+    response = llm.invoke(input = prompt , sys_prompt = sys_prompt ,history = history)
     check = 'no'
     # if(len(history[:-1])>=3):
     check = llm_classifier.invoke(input = response  , sys_prompt = classifier_prompt )

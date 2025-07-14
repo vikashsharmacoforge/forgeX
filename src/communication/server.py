@@ -1,8 +1,11 @@
 import sys
 import json
+import os
 import uuid
-sys.path.append(r"D:\OneDrive - Coforge Limited\Desktop\ForgeX\agent Chat\module")
-from clients.stmhttp_client import MCPClient
+clients_path = os.path.abspath("../mcp-clients")
+if clients_path not in sys.path:
+    sys.path.append(clients_path)
+from stmhttp_client import MCPClient
 
 from fastapi import FastAPI
 

@@ -1,4 +1,9 @@
-from clients.stmhttp_client import MCPClient
+import sys
+import os
+clients_path = os.path.abspath("../mcp-clients")
+if clients_path not in sys.path:
+    sys.path.append(clients_path)
+from stmhttp_client import MCPClient
 from typing import Any
 import asyncio
 import json
