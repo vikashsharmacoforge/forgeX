@@ -106,34 +106,45 @@
 ---
 
 ## How to Run
-
-1. **Install Dependencies**
+1. **Set up .env file**
+   ```
+   AZURE_OPENAI_API_KEY = "enter your key"
+   AZURE_OPENAI_ENDPOINT = "enter your endpoint"
+   OPENAI_API_VERSION = "enter your api version"
+   AZURE_OPENAI_API_DEPLOYMENT_NAME = "enter model name"
+    
+    
+   endpoint_url = "enter your endpoint"
+   model = "enter model name"
+   ```
+   Save this in ForgeX Folder
+2. **Install Dependencies**
    ```
    pip install -r requirements.txt
    ```
 
-2. **Start the STM Server**
+3. **Start the STM Server**
    ```
-   python src/memory/stm.py
-   ```
-
-3. **Start Agent Servers**
-   ```
-   python src/agents/getpr.py
-   python src/agents/cus_agent.py
-   python src/agents/hitl.py
+   python stm.py
    ```
 
-4. **Start the Communication Server**
+4. **Start Agent Servers**
    ```
-   python src/communication/server.py
-   ```
-
-5. **Run the Frontend**
-   ```
-   python final chat/app.py
+   python getpr.py
+   python cus_agent.py
+   python hitl.py
    ```
 
+5. **Start the Communication Server**
+   ```
+   python server.py
+   ```
+
+6. **Run the Frontend**
+   ```
+   shiny run app.py
+   ```
+   Note:- Run all the servers from their respective folders eg run getpr.py from "agents" folder
 ---
 
 ## Configuration
