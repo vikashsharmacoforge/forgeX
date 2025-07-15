@@ -1,0 +1,266 @@
+{
+  "name": "Project_requirement_agents_flow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "77ab886c-4239-4cc7-8e1d-00e20c26a4b8",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -480,
+        160
+      ],
+      "id": "b8fb2d11-3e7c-48c3-ab4e-0f671bc0e2a2",
+      "name": "Webhook",
+      "webhookId": "77ab886c-4239-4cc7-8e1d-00e20c26a4b8"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        1040,
+        160
+      ],
+      "id": "01f89927-a7d0-44d6-a49e-93239ad60776",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Webhook').item.json.body.data.state }}",
+                    "rightValue": "START",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "c02209ea-9b99-4e2b-a45e-a15482f1dd64"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "025d9eaf-e930-402d-98a2-075e029de987",
+                    "leftValue": "={{ $('Webhook').item.json.body.data.state }}",
+                    "rightValue": "CUS",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9b896ab4-3f38-4925-b0ee-6a8f60d67341",
+                    "leftValue": "={{ $('Webhook').item.json.body.data.state }}",
+                    "rightValue": "=HITL",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        240,
+        160
+      ],
+      "id": "c4a37f7c-89a2-4556-b3ce-32f6a7137c97",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "command": "=curl -X POST http://localhost:8080/data/{{ $('Webhook').item.json.body.data.state }} -H \"Content-Type: application/json\" -d \" {{ $json.data }} \""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        640,
+        -40
+      ],
+      "id": "d1b40706-e908-47a9-bf05-e28ab06919ca",
+      "name": "Execute PR getter agent"
+    },
+    {
+      "parameters": {
+        "command": "=curl -X POST http://localhost:8080/data/{{ $('Webhook').item.json.body.data.state }} -H \"Content-Type: application/json\" -d \" {{ $json.data }}\""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        640,
+        160
+      ],
+      "id": "3e8df8c1-3cc8-4311-802e-592d3e858454",
+      "name": "Execute User Stories Creator Agent"
+    },
+    {
+      "parameters": {
+        "command": "=curl -X POST http://localhost:8080/data/{{ $('Webhook').item.json.body.data.state }} -H \"Content-Type: application/json\" -d \" {{ $json.data }}\""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        640,
+        380
+      ],
+      "id": "a97c91d4-0a4b-424d-9ec9-b41737267f4d",
+      "name": "Execute HITL"
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nimport json\n\nmessages = {\"messages\":[]}\nfor item in _input.all():\n  for message in item.json.body.data.messages:\n    role = message.role\n    content = message.content\n    msg = {\"role\":role,\"content\":content}\n    messages[\"messages\"].append(msg)\n\n  messages['state'] = item.json.body.data.state\n  messages['_uuid'] = item.json.body.data._uuid\n\nresponse = json.dumps(messages)\nresponse = response.replace('\"','\\\\\"')\nreturn {\"data\": str(response)}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        160
+      ],
+      "id": "9305f223-0706-4dd3-a9f3-0b264483e433",
+      "name": "convert to curl format3"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "convert to curl format3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Execute PR getter agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Execute User Stories Creator Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Execute HITL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute PR getter agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute User Stories Creator Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute HITL": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "convert to curl format3": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "49e8b009-1cee-4f10-81d4-712842c7465a",
+  "meta": {
+    "instanceId": "a70a9e0f92cd223d7927eb6eef88e970f74bb3358832c42c95905f13d9a66110"
+  },
+  "id": "3YoNOSz6zNuRXfkL",
+  "tags": []
+}
