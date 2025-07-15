@@ -9,7 +9,9 @@ import uuid
 client_path = os.path.abspath("../src/mcp-clients")
 if client_path not in sys.path:
     sys.path.append(client_path)
-sys.path.append(os.path.abspath("../src/utils"))
+utils_path = os.path.abspath("../src/utils")
+if utils_path not in sys.path:
+    sys.path.append(utils_path)
 from stm_context_manager import store_messages , get_conversation
 
 chat = ui.Chat(id="agent_chat")
