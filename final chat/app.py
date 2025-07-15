@@ -5,6 +5,10 @@ import json
 import sys
 import os
 import uuid
+
+client_path = os.path.abspath("../src/mcp-clients")
+if client_path not in sys.path:
+    sys.path.append(client_path)
 sys.path.append(os.path.abspath("../src/utils"))
 from stm_context_manager import store_messages , get_conversation
 
