@@ -5,7 +5,7 @@ import json
 import sys
 import os
 import uuid
-sys.path.append(os.path.abspath("../module"))
+sys.path.append(os.path.abspath("../src/utils"))
 from stm_context_manager import store_messages , get_conversation
 
 chat = ui.Chat(id="agent_chat")

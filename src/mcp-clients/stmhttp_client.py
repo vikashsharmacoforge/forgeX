@@ -8,7 +8,6 @@ from contextlib import AsyncExitStack
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 
-from anthropic import Anthropic
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -21,7 +20,6 @@ class MCPClient:
         # Initialize session and client objects
         self.session: Optional[ClientSession] = None
         self.exit_stack = AsyncExitStack()
-        self.anthropic = Anthropic()
 
     async def connect_to_streamable_http_server(
         self, server_url: str, headers: Optional[dict] = None
@@ -38,75 +36,6 @@ class MCPClient:
 
         await self.session.initialize()
 
-    async def process_query(self, query: str) -> str:
-        """Process a query using Claude and available tools"""
-        messages = [{"role": "user", "content": query}]
-
-        response = await self.session.list_tools()
-        available_tools = [
-            {
-                "name": tool.name,
-                "description": tool.description,
-                "input_schema": tool.inputSchema,
-            }
-            for tool in response.tools
-        ]
-
-        # Initial Claude API call
-        response = self.anthropic.messages.create(
-            model="claude-3-5-sonnet-20241022",
-            max_tokens=1000,
-            messages=messages,
-            tools=available_tools,
-        )
-
-        # Process response and handle tool calls
-        final_text = []
-
-        for content in response.content:
-            if content.type == "text":
-                final_text.append(content.text)
-            elif content.type == "tool_use":
-                tool_name = content.name
-                tool_args = content.input
-
-                # Execute tool call
-                result = await self.session.call_tool(tool_name, tool_args)
-                final_text.append(f"[Calling tool {tool_name} with args {tool_args}]")
-
-                # Continue conversation with tool results
-                if hasattr(content, "text") and content.text:
-                    messages.append({"role": "assistant", "content": content.text})
-                messages.append({"role": "user", "content": result.content})
-
-                # Get next response from Claude
-                response = self.anthropic.messages.create(
-                    model="claude-3-5-sonnet-20241022",
-                    max_tokens=1000,
-                    messages=messages,
-                )
-
-                final_text.append(response.content[0].text)
-
-        return "\n".join(final_text)
-
-    async def chat_loop(self):
-        """Run an interactive chat loop"""
-        print("\nMCP Client Started!")
-        print("Type your queries or 'quit' to exit.")
-
-        while True:
-            try:
-                query = input("\nQuery: ").strip()
-
-                if query.lower() == "quit":
-                    break
-
-                response = await self.process_query(query)
-                print("\n" + response)
-
-            except Exception as e:
-                print(f"\nError: {str(e)}")
 
     async def cleanup(self):
         """Properly clean up the session and streams"""
@@ -116,24 +45,24 @@ class MCPClient:
             await self._streams_context.__aexit__(None, None, None)  # pylint: disable=E1101
 
 
-async def main():
-    """Main function to run the MCP client"""
-    parser = argparse.ArgumentParser(description="Run MCP Streamable http based Client")
-    parser.add_argument(
-        "--mcp-localhost-port", type=int, default=8123, help="Localhost port to bind to"
-    )
-    args = parser.parse_args()
+# async def main():
+#     """Main function to run the MCP client"""
+#     parser = argparse.ArgumentParser(description="Run MCP Streamable http based Client")
+#     parser.add_argument(
+#         "--mcp-localhost-port", type=int, default=8123, help="Localhost port to bind to"
+#     )
+#     args = parser.parse_args()
 
-    client = MCPClient()
+#     client = MCPClient()
 
-    try:
-        await client.connect_to_streamable_http_server(
-            f"http://localhost:{args.mcp_localhost_port}/mcp"
-        )
-        await client.chat_loop()
-    finally:
-        await client.cleanup()
+#     try:
+#         await client.connect_to_streamable_http_server(
+#             f"http://localhost:{args.mcp_localhost_port}/mcp"
+#         )
+#         await client.chat_loop()
+#     finally:
+#         await client.cleanup()
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# if __name__ == "__main__":
+#     asyncio.run(main())

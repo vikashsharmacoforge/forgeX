@@ -1,14 +1,8 @@
-import sys
-import json
-import os
-import uuid
-clients_path = os.path.abspath("../mcp-clients")
-if clients_path not in sys.path:
-    sys.path.append(clients_path)
-from stmhttp_client import MCPClient
-
 from fastapi import FastAPI
-
+import os
+import sys
+sys.path.append(os.path.abspath("../utils"))
+from agents_wrapper import connect_to_mcp_agent
 app = FastAPI()
 
 @app.get("/")
@@ -16,47 +10,17 @@ async def root():
     return {"message": "Hello World"}
 
 # add a post request endpoint 
-@app.post("/data/")
+@app.post("/data/START")
 async def receive_data(data: dict)-> dict:
-    client = None
-    messages = None
-    state = data.get('state',str)
-    _uuid = data.get('_uuid',str)
-    try:
-        # Process the received data here
-        print(data)
-        client = MCPClient()
-        await client.connect_to_streamable_http_server("http://localhost:5050/mcp/")
-        
-        # print(await client.session.list_tools())
-        
-        # Extract the last user message as input
-        messages = data.get('messages', [])
-        user_messages = [msg for msg in messages if msg['role'] == 'user']
-        
-        if not user_messages:
-            return {"error": "No user message found"}
+    return await connect_to_mcp_agent(data, "http://localhost:5050/mcp/" , "handle_prompt")
+                    
+@app.post("/data/CUS")
+async def receive_data(data: dict)-> dict:
+    return await connect_to_mcp_agent(data, "http://localhost:5051/mcp/" , "create_user_stories")
     
-        
-        # Call the tool with properly formatted input
-        response = await client.session.call_tool(
-            name="handle_prompt", 
-            arguments={"prompt": user_messages[-1].get("content",str),
-                        "state": state,
-                        "uuid": _uuid
-                    }
-        )
-        # Extract text from the response
-        print(response)
-        state = (json.loads(response.content[0].text).get('state', str))
-        print("new_state:",state)
-        
-        return {"response" :{'state':state , "_uuid":_uuid}}
-    finally:
-        if client:
-            await client.cleanup()
-    
-            
+@app.post("/data/HITL")
+async def receive_data(data: dict)-> dict:
+    return await connect_to_mcp_agent(data, "http://localhost:5052/mcp/" , "hitl")
 
 # start the server on port 8080
 if __name__ == "__main__":
