@@ -5,6 +5,8 @@ sys.path.append(os.path.abspath("../utils"))
 from agents_wrapper import connect_to_mcp_agent
 app = FastAPI()
 
+
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}

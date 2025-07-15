@@ -1,0 +1,798 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d11" for="edge" attr.name="created_at" attr.type="long"/>
+<key id="d10" for="edge" attr.name="file_path" attr.type="string"/>
+<key id="d9" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d8" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d7" for="edge" attr.name="description" attr.type="string"/>
+<key id="d6" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d5" for="node" attr.name="created_at" attr.type="long"/>
+<key id="d4" for="node" attr.name="file_path" attr.type="string"/>
+<key id="d3" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="description" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_id" attr.type="string"/>
+<graph edgedefault="undirected"><node id="Rates Hub">
+  <data key="d0">Rates Hub</data>
+  <data key="d1">organization</data>
+  <data key="d2">Rates Hub is a centralized and integrated system designed to transform rate management processes by automating tasks, providing historical data, and enabling seamless integration with other platforms.&lt;SEP&gt;Rates Hub is a centralized rates management system designed to automate the process of determining, approving, and distributing deposit and index rates for various bank products.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2&lt;SEP&gt;chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Rates Committee Members">
+  <data key="d0">Rates Committee Members</data>
+  <data key="d1">person</data>
+  <data key="d2">Rates Committee Members are users responsible for setting, approving, and publishing rates for various bank products, including promotional and relationship-based rates.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Branch Bankers">
+  <data key="d0">Branch Bankers</data>
+  <data key="d1">person</data>
+  <data key="d2">Branch Bankers are Synovus employees who will use the Rates Hub system to access and manage rate information.&lt;SEP&gt;Branch Bankers are users who access daily rate cards tailored to their branch and region, enabling them to offer accurate rates to customers.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2&lt;SEP&gt;chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="FIS Core Banking Platform">
+  <data key="d0">FIS Core Banking Platform</data>
+  <data key="d1">organization</data>
+  <data key="d2">FIS Core Banking Platform is a financial services platform that will integrate with the Rates Hub to manage rates in real time.&lt;SEP&gt;FIS Core Banking Platform is a financial system that requires integration with Rates Hub to access rates in real time.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2&lt;SEP&gt;chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="MuleSoft">
+  <data key="d0">MuleSoft</data>
+  <data key="d1">organization</data>
+  <data key="d2">MuleSoft is an integration platform used to connect Rates Hub with the FIS Core Banking Platform and third-party rates providers.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="10Y Treasury">
+  <data key="d0">10Y Treasury</data>
+  <data key="d1">category</data>
+  <data key="d2">10Y Treasury refers to the 10-year Treasury bond rate, which is one of the index rates fetched by Rates Hub.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="20Y Treasury">
+  <data key="d0">20Y Treasury</data>
+  <data key="d1">category</data>
+  <data key="d2">20Y Treasury refers to the 20-year Treasury bond rate, another index rate fetched by Rates Hub.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Excel-Based Process">
+  <data key="d0">Excel-Based Process</data>
+  <data key="d1">event</data>
+  <data key="d2">The Excel-Based Process is the current manual method for determining, approving, and distributing rates, which is being replaced by Rates Hub.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Automation">
+  <data key="d0">Automation</data>
+  <data key="d1">category</data>
+  <data key="d2">Automation refers to the process of reducing manual intervention in rate management, ensuring timely uploads and accurate pricing.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="PostgreSQL">
+  <data key="d0">PostgreSQL</data>
+  <data key="d1">organization</data>
+  <data key="d2">PostgreSQL is an open-source database system used by Rates Hub to store time-series data efficiently.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id=".NET 8">
+  <data key="d0">.NET 8</data>
+  <data key="d1">category</data>
+  <data key="d2">.NET 8 is a robust enterprise-grade framework used for backend development in Rates Hub, providing strong API integration capabilities.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="React">
+  <data key="d0">React</data>
+  <data key="d1">category</data>
+  <data key="d2">React is a component-based library used for building dynamic user interfaces in Rates Hub.&lt;SEP&gt;React is a frontend technology used to create user-friendly interfaces, including dashboards and historical data views for the Rates Hub.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2&lt;SEP&gt;chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Angular">
+  <data key="d0">Angular</data>
+  <data key="d1">category</data>
+  <data key="d2">Angular is a full-fledged framework considered for frontend development in Rates Hub, though React is preferred.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="OAuth 2.0">
+  <data key="d0">OAuth 2.0</data>
+  <data key="d1">category</data>
+  <data key="d2">OAuth 2.0 is an authentication protocol used in Rates Hub for role-based access control.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="JWT">
+  <data key="d0">JWT</data>
+  <data key="d1">category</data>
+  <data key="d2">JWT (JSON Web Token) is an authentication method used in Rates Hub for secure access control.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Docker Containers">
+  <data key="d0">Docker Containers</data>
+  <data key="d1">category</data>
+  <data key="d2">Docker Containers are used for deploying Rates Hub on Azure, ensuring scalability and efficient resource management.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Azure">
+  <data key="d0">Azure</data>
+  <data key="d1">organization</data>
+  <data key="d2">Azure is a cloud platform used for deploying Rates Hub, providing scalability and reliability.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Historical Data">
+  <data key="d0">Historical Data</data>
+  <data key="d1">category</data>
+  <data key="d2">Historical Data refers to stored rates over time, accessible through Rates Hub for analysis and reporting.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Daily Rate Display">
+  <data key="d0">Daily Rate Display</data>
+  <data key="d1">category</data>
+  <data key="d2">Daily Rate Display is a feature in Rates Hub that fetches and displays rates every morning via scheduled jobs.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Rate Adjustment">
+  <data key="d0">Rate Adjustment</data>
+  <data key="d1">category</data>
+  <data key="d2">Rate Adjustment is a feature in Rates Hub allowing authorized users to modify rates through secure web forms.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Promotional Rates">
+  <data key="d0">Promotional Rates</data>
+  <data key="d1">category</data>
+  <data key="d2">Promotional Rates are special rates defined by Rates Committee Members for specific bank products.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Relationship-Based Pricing">
+  <data key="d0">Relationship-Based Pricing</data>
+  <data key="d1">category</data>
+  <data key="d2">Relationship-Based Pricing refers to customized rates based on customer relationships, managed through Rates Hub.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Balance-Tiered Rates">
+  <data key="d0">Balance-Tiered Rates</data>
+  <data key="d1">category</data>
+  <data key="d2">Balance-Tiered Rates are rates based on account balances, managed and distributed through Rates Hub.</data>
+  <data key="d3">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Synovus">
+  <data key="d0">Synovus</data>
+  <data key="d1">organization</data>
+  <data key="d2">Synovus is a financial institution that will benefit from the implementation of the Rates Hub system to modernize its rate management process.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Rates Committee">
+  <data key="d0">Rates Committee</data>
+  <data key="d1">organization</data>
+  <data key="d2">The Rates Committee is a group within Synovus responsible for overseeing rate management and decision-making processes.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id=".NET Worker Service">
+  <data key="d0">.NET Worker Service</data>
+  <data key="d1">category</data>
+  <data key="d2">.NET Worker Service is a backend technology used to automate daily tasks, such as fetching and displaying rates every morning.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="MuleSoft API">
+  <data key="d0">MuleSoft API</data>
+  <data key="d1">category</data>
+  <data key="d2">MuleSoft API is an integration layer technology used to export adjusted rates and communicate with third-party systems.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Rate Adjustment Web Form">
+  <data key="d0">Rate Adjustment Web Form</data>
+  <data key="d1">category</data>
+  <data key="d2">Rate Adjustment Web Form is a frontend feature that allows users to modify rates with role-based access controls and audit logging.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Chart.js, Highcharts, Rechart">
+  <data key="d0">Chart.js, Highcharts, Rechart</data>
+  <data key="d1">category</data>
+  <data key="d2">Chart.js, Highcharts, and Rechart are charting libraries used to visualize historical rate data in the Rates Hub.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="URI Endpoints">
+  <data key="d0">URI Endpoints</data>
+  <data key="d1">category</data>
+  <data key="d2">URI Endpoints are integration points provided by the Rates Hub to enable real-time communication with auxiliary systems.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Phase 1: Requirements and Setup">
+  <data key="d0">Phase 1: Requirements and Setup</data>
+  <data key="d1">event</data>
+  <data key="d2">Phase 1 involves discovery, architecture design, and environment setup for the Rates Hub project.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Phase 2: Core Development">
+  <data key="d0">Phase 2: Core Development</data>
+  <data key="d1">event</data>
+  <data key="d2">Phase 2 focuses on backend and frontend development, including API integration, database setup, and scheduled tasks.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Phase 3: Testing and Integration">
+  <data key="d0">Phase 3: Testing and Integration</data>
+  <data key="d1">event</data>
+  <data key="d2">Phase 3 includes testing, quality assurance, user acceptance testing, and platform integrations.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Phase 4: Deployment and Training">
+  <data key="d0">Phase 4: Deployment and Training</data>
+  <data key="d1">event</data>
+  <data key="d2">Phase 4 involves deploying the Rates Hub system, training users, and going live.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Database Schema">
+  <data key="d0">Database Schema</data>
+  <data key="d1">category</data>
+  <data key="d2">Database Schema refers to the structure used to store rate-related data, including timestamp, rate type, value, adjusted value, user ID, and audit logs.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Service Layer">
+  <data key="d0">Service Layer</data>
+  <data key="d1">category</data>
+  <data key="d2">Service Layer is the backend component responsible for business logic, including validation and authorization.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Dashboard">
+  <data key="d0">Dashboard</data>
+  <data key="d1">category</data>
+  <data key="d2">Dashboard is a frontend feature that displays daily rates with filters such as date range and rate type.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Historical Data View">
+  <data key="d0">Historical Data View</data>
+  <data key="d1">category</data>
+  <data key="d2">Historical Data View is a frontend feature that visualizes past rates using charting libraries like Chart.js, Highcharts, or Rechart.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Error Handling Mechanism">
+  <data key="d0">Error Handling Mechanism</data>
+  <data key="d1">category</data>
+  <data key="d2">Error Handling Mechanism is a system feature designed to gracefully manage API failures with retry mechanisms and alerts.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Role-Based Access Controls">
+  <data key="d0">Role-Based Access Controls</data>
+  <data key="d1">category</data>
+  <data key="d2">Role-Based Access Controls are security measures that restrict access to features like rate adjustments based on user roles such as viewer, editor, or admin.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Audit Log">
+  <data key="d0">Audit Log</data>
+  <data key="d1">category</data>
+  <data key="d2">Audit Log is a feature that tracks changes made to rates for accountability and compliance purposes.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Integration Layer">
+  <data key="d0">Integration Layer</data>
+  <data key="d1">category</data>
+  <data key="d2">Integration Layer facilitates communication with third-party systems via MuleSoft and provides URI endpoints for real-time data exchange.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Frontend Development">
+  <data key="d0">Frontend Development</data>
+  <data key="d1">category</data>
+  <data key="d2">Frontend Development involves creating user interfaces for features like dashboards, historical data views, and web forms.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Backend Development">
+  <data key="d0">Backend Development</data>
+  <data key="d1">category</data>
+  <data key="d2">Backend Development includes creating scheduled tasks, database schemas, and service layers for business logic.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Rates Plan Export">
+  <data key="d0">Rates Plan Export</data>
+  <data key="d1">category</data>
+  <data key="d2">Rates Plan Export is a feature that allows adjusted rates to be exported to the FIS rates plan via MuleSoft API.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Scheduled Task">
+  <data key="d0">Scheduled Task</data>
+  <data key="d1">category</data>
+  <data key="d2">Scheduled Task is a backend feature that automates the daily fetching and display of rates.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Discovery Phase">
+  <data key="d0">Discovery Phase</data>
+  <data key="d1">event</data>
+  <data key="d2">Discovery Phase is the initial stage of the project where requirements are gathered and architecture is designed.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Core Development Phase">
+  <data key="d0">Core Development Phase</data>
+  <data key="d1">event</data>
+  <data key="d2">Core Development Phase focuses on building backend and frontend components, including API integration and database setup.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Testing Phase">
+  <data key="d0">Testing Phase</data>
+  <data key="d1">event</data>
+  <data key="d2">Testing Phase involves quality assurance, user acceptance testing, and platform integrations.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<node id="Deployment Phase">
+  <data key="d0">Deployment Phase</data>
+  <data key="d1">event</data>
+  <data key="d2">Deployment Phase includes deploying the system, training users, and going live.</data>
+  <data key="d3">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d4">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d5">1752602753</data>
+</node>
+<edge source="Rates Hub" target="Rates Committee Members">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub provides a secure portal for Rates Committee Members to set, approve, and publish rates.</data>
+  <data key="d8">rate approval,secure access</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Branch Bankers">
+  <data key="d6">16.0</data>
+  <data key="d7">Branch Bankers will use the Rates Hub system to access and manage rate information effectively.&lt;SEP&gt;Rates Hub enables Branch Bankers to view daily rate cards and access real-time rates tailored to their region.</data>
+  <data key="d8">financial operations,rate distribution,user access,user interaction</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2&lt;SEP&gt;chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="FIS Core Banking Platform">
+  <data key="d6">18.0</data>
+  <data key="d7">Rates Hub integrates seamlessly with the FIS Core Banking Platform to manage rates in real time.&lt;SEP&gt;Rates Hub integrates with the FIS Core Banking Platform to provide real-time rates access.</data>
+  <data key="d8">financial services,integration,real-time data,system integration</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2&lt;SEP&gt;chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="MuleSoft">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub uses MuleSoft for integration with the FIS Core Banking Platform and third-party rates providers.</data>
+  <data key="d8">data exchange,integration platform</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Excel-Based Process">
+  <data key="d6">10.0</data>
+  <data key="d7">Rates Hub replaces the manual Excel-Based Process, addressing inefficiencies and risks.</data>
+  <data key="d8">automation,process improvement</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Automation">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub leverages automation to streamline rate management and reduce manual intervention.</data>
+  <data key="d8">efficiency,technology adoption</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="10Y Treasury">
+  <data key="d6">7.0</data>
+  <data key="d7">Rates Hub fetches the 10Y Treasury rate as part of its integration with third-party rates providers.</data>
+  <data key="d8">financial data,index rates</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="20Y Treasury">
+  <data key="d6">7.0</data>
+  <data key="d7">Rates Hub fetches the 20Y Treasury rate to provide accurate index rates.</data>
+  <data key="d8">financial data,index rates</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="PostgreSQL">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub uses PostgreSQL to store time-series data efficiently.</data>
+  <data key="d8">data storage,database integration</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target=".NET 8">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub uses .NET 8 for backend development, leveraging its API integration capabilities.</data>
+  <data key="d8">API integration,backend development</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="React">
+  <data key="d6">17.0</data>
+  <data key="d7">Rates Hub uses React for building dynamic user interfaces.&lt;SEP&gt;React is used in the Rates Hub to create user-friendly dashboards and interfaces for rate management.</data>
+  <data key="d8">frontend development,user experience</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2&lt;SEP&gt;chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="OAuth 2.0">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub uses OAuth 2.0 for secure role-based access control.</data>
+  <data key="d8">authentication,security</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="JWT">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub uses JWT for secure access control and authentication.</data>
+  <data key="d8">authentication,security</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Docker Containers">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub is deployed using Docker Containers for scalability.</data>
+  <data key="d8">deployment,scalability</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Azure">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub is hosted on Azure for reliable cloud-based deployment.</data>
+  <data key="d8">cloud platform,scalability</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Historical Data">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub stores historical data for analysis and reporting.</data>
+  <data key="d8">data storage,reporting</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Daily Rate Display">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub fetches and displays daily rates through scheduled jobs.</data>
+  <data key="d8">automation,rate updates</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Rate Adjustment">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub allows authorized users to adjust rates securely.</data>
+  <data key="d8">authorization,rate modification</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Promotional Rates">
+  <data key="d6">7.0</data>
+  <data key="d7">Rates Hub enables the creation and management of promotional rates.</data>
+  <data key="d8">marketing,rate customization</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Relationship-Based Pricing">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub supports relationship-based pricing for customized rates.</data>
+  <data key="d8">customer relationships,rate customization</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Balance-Tiered Rates">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub manages balance-tiered rates for account-based pricing.</data>
+  <data key="d8">account management,rate customization</data>
+  <data key="d9">chunk-660938a9257fd4a4956cec1f99575be2</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Synovus">
+  <data key="d6">10.0</data>
+  <data key="d7">Synovus will use the Rates Hub system to modernize its rate management process and replace outdated methods.</data>
+  <data key="d8">modernization,process improvement</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target=".NET Worker Service">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub leverages .NET Worker Service to automate daily tasks such as fetching and displaying rates.</data>
+  <data key="d8">automation,backend technology</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="MuleSoft API">
+  <data key="d6">8.0</data>
+  <data key="d7">MuleSoft API enables the Rates Hub to export adjusted rates and communicate with third-party systems.</data>
+  <data key="d8">API communication,integration</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Rate Adjustment Web Form">
+  <data key="d6">9.0</data>
+  <data key="d7">The Rate Adjustment Web Form is a key feature of the Rates Hub, allowing users to modify rates securely.</data>
+  <data key="d8">rate modification,user access</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Chart.js, Highcharts, Rechart">
+  <data key="d6">7.0</data>
+  <data key="d7">Charting libraries like Chart.js, Highcharts, and Rechart are used in the Rates Hub to visualize historical rate data.</data>
+  <data key="d8">data visualization,historical analysis</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="URI Endpoints">
+  <data key="d6">8.0</data>
+  <data key="d7">URI Endpoints provided by the Rates Hub enable real-time communication with auxiliary systems.</data>
+  <data key="d8">integration,real-time data</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Phase 1: Requirements and Setup">
+  <data key="d6">7.0</data>
+  <data key="d7">Phase 1 is the initial stage of the Rates Hub project, focusing on discovery and architecture design.</data>
+  <data key="d8">project planning,setup</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Phase 2: Core Development">
+  <data key="d6">8.0</data>
+  <data key="d7">Phase 2 involves the core development of the Rates Hub, including backend and frontend features.</data>
+  <data key="d8">development,implementation</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Phase 3: Testing and Integration">
+  <data key="d6">9.0</data>
+  <data key="d7">Phase 3 ensures the Rates Hub system is tested, integrated, and ready for user acceptance.</data>
+  <data key="d8">integration,quality assurance</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Phase 4: Deployment and Training">
+  <data key="d6">9.0</data>
+  <data key="d7">Phase 4 focuses on deploying the Rates Hub system, training users, and going live.</data>
+  <data key="d8">deployment,user training</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Dashboard">
+  <data key="d6">9.0</data>
+  <data key="d7">The Dashboard is a key feature of the Rates Hub, providing users with daily rate information.</data>
+  <data key="d8">data display,frontend feature</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Historical Data View">
+  <data key="d6">8.0</data>
+  <data key="d7">The Historical Data View is part of the Rates Hub, allowing users to analyze past rate trends.</data>
+  <data key="d8">data analysis,visualization</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Error Handling Mechanism">
+  <data key="d6">9.0</data>
+  <data key="d7">The Error Handling Mechanism ensures the Rates Hub can manage API failures gracefully.</data>
+  <data key="d8">error management,system reliability</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Role-Based Access Controls">
+  <data key="d6">10.0</data>
+  <data key="d7">Role-Based Access Controls are implemented in the Rates Hub to secure user interactions.</data>
+  <data key="d8">security,user roles</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Audit Log">
+  <data key="d6">9.0</data>
+  <data key="d7">The Audit Log is integrated into the Rates Hub to track changes for compliance.</data>
+  <data key="d8">accountability,compliance</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Integration Layer">
+  <data key="d6">9.0</data>
+  <data key="d7">The Integration Layer is a critical component of the Rates Hub, enabling seamless communication with external systems.</data>
+  <data key="d8">integration,real-time data</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rates Hub" target="Rates Plan Export">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Plan Export is a feature of the Rates Hub that allows adjusted rates to be shared with the FIS rates plan.</data>
+  <data key="d8">data export,integration</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="MuleSoft API" target="Integration Layer">
+  <data key="d6">8.0</data>
+  <data key="d7">The Integration Layer uses MuleSoft API to facilitate communication with third-party systems.</data>
+  <data key="d8">API communication,integration</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rate Adjustment Web Form" target="Role-Based Access Controls">
+  <data key="d6">10.0</data>
+  <data key="d7">Role-Based Access Controls ensure secure access to the Rate Adjustment Web Form based on user roles.</data>
+  <data key="d8">security,user management</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Rate Adjustment Web Form" target="Audit Log">
+  <data key="d6">9.0</data>
+  <data key="d7">The Audit Log tracks changes made through the Rate Adjustment Web Form for compliance purposes.</data>
+  <data key="d8">accountability,compliance</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Database Schema" target="Service Layer">
+  <data key="d6">8.0</data>
+  <data key="d7">The Service Layer interacts with the Database Schema to validate and authorize rate-related data.</data>
+  <data key="d8">backend logic,data management</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Dashboard" target="Historical Data View">
+  <data key="d6">9.0</data>
+  <data key="d7">The Dashboard and Historical Data View are frontend features that provide users with access to current and past rate information.</data>
+  <data key="d8">data visualization,user interface</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Dashboard" target="Frontend Development">
+  <data key="d6">8.0</data>
+  <data key="d7">Frontend Development is responsible for creating the Dashboard as part of the Rates Hub.</data>
+  <data key="d8">frontend design,user interface</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Backend Development" target="Scheduled Task">
+  <data key="d6">8.0</data>
+  <data key="d7">Backend Development includes creating Scheduled Tasks to automate daily rate fetching.</data>
+  <data key="d8">automation,backend feature</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Discovery Phase" target="Core Development Phase">
+  <data key="d6">8.0</data>
+  <data key="d7">The Discovery Phase leads into the Core Development Phase, where the system is built based on gathered requirements.</data>
+  <data key="d8">development,project planning</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Core Development Phase" target="Testing Phase">
+  <data key="d6">9.0</data>
+  <data key="d7">The Core Development Phase is followed by the Testing Phase to ensure system functionality.</data>
+  <data key="d8">development,quality assurance</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+<edge source="Testing Phase" target="Deployment Phase">
+  <data key="d6">9.0</data>
+  <data key="d7">The Testing Phase precedes the Deployment Phase, ensuring the system is ready for launch.</data>
+  <data key="d8">deployment,quality assurance</data>
+  <data key="d9">chunk-6794a2e6321107eae1585054a3eeba75</data>
+  <data key="d10">./data/Project\Rates Hub Requirement.txt</data>
+  <data key="d11">1752602753</data>
+</edge>
+</graph></graphml>

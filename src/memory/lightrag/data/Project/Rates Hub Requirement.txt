@@ -1,0 +1,59 @@
+Introduction
+The proposed Rates Hub is a modern, centralized rates management system designed to streamline the process of publishing deposit rates and index rates for various products. It replaces the current manual, Excel-based process for determining, approving and distributing interest rates with branches, managing and uploading financial deposit and index rates critical to daily operation. The system will integrate with 3rd party rates providers to fetch rates such as 10Y Treasury, 20Y Treasure and other index rates. It will allow users to create rates and get it reviewed by approvers, view daily rates, access historical data, adjust rates with proper authorization upload updated rates to FIS Rates plan. It will provide end points so other applications that can call to get rates as well as provide pub/sub model for applications to subscribe to rates. The solution will leverage modern software development practices with a scalable backend and an intuitive frontend. Eventually, functions of all rates in the bank will be housed in application called “Rates Hub”.
+
+
+
+Problem Statement
+The current process for determining rates and sharing the rates with various teams, departments and branches is manual and involves sharing excel sheets. This created several risks, including:
+•	Inefficiency: Manual rate updates and distribution are time-consuming and prone to delays. Mistyped or mis-entered values lead to inaccurate deal pricing.
+•	Lack of Flexibility: The current system deals with promotional rates, relationship-based pricing and balance-tiered rates manually.
+•	Operational Inefficiency: Valuable time and resources are spent on a repetitive task that could be automated.
+•	Business Impact: Delayed or incorrect FTP rate uploads affect the pricing accuracy, potentially resulting in mispriced deals, lost opportunity, and incorrect profit calculations.
+•	Limited Integrations: The FIS Core Banking platform cannot directly access rates, requiring manual interventions. Lacks Rates management applications to be reached out by other apps to get the rates. 
+To address these issues, automation is required to ensure timely rates upload, reduce manual intervention, and precisely pricing the loans.
+Proposed Solutions: Rates Hub
+Rates Hub is a web-based, centralized rates management system that addresses the above challenges by providing a secure and integrated platform for rates determination, approval and distribution. The system will serve two primary user groups and other functions systems.
+•	Rates committee members: Login to a secured portal to set and approve rates for various bank products, Define promotional rates, relationship-based rates and balance-tiered rates. Approve and publish rates for distribution.
+•	Branch Bankers: Login to view daily rate cards tailored to their branch and market/region, access real-time rates of offer products to customers accurately and efficiently
+•	Other Applications: Call Uniform Resource Identifier (URI) endpoints by any software applications that need rates in real time.
+Proposed Technology Stack
+•	Backend:
+o	.NET 8 – A robust, enterprise-grade framework with strong API integration capabilities, ideal choice as existing Rates app (developed by FinTech Advantage) is using same tech. This new IRMS can be incorporated as a new functionality
+o	Database – PostgreSQL, an open-source, reliable and supports time-series data efficiently, or whatever Database is used by Rates app.
+•	Frontend:
+o	React – A popular component-based library for building dynamic UIs.
+o	Or Angular - a full-fledged framework with built in tools for enterprise applications. (React is preferred as it is already used in Rates app)
+•	API Integration:
+o	FIS Core platform integration via MuleSoft,
+o	Provide endpoints for any system that needs rates in real time,
+o	And get any 3rd party integrated via MuleSoft to SNV systems
+•	Authentication: OAuth 2.0 or JWT for role-based access control, for example, view only, versus edit privileges.
+•	Deployment: Docker containers on Azure for scalability.
+System Architecture
+1.	Backend:
+a.	Restful API endpoints to handle retrieval, storage, and uploads
+b.	Scheduled task, for example, .NET worker service to automate daily tasks
+c.	Database schema for rates, for example, timestamp, rate type, value, adjusted value, user ID, audit log
+d.	Service layer for business logic, for example, validation authorization
+2.	Frontend:
+a.	Dashboard for daily rates with filters, for example, date range, rate type, etc.
+b.	Historical data view with charts, for example, using chart.js, highcharts or rechart (react chart library)
+c.	Web Form for rate adjustment with role-based access controls
+d.	Export functionality for FIS rates plan via MuleSoft API
+3.	Integration Layer:
+a.	Communication to any 3rd party vis MuleSoft
+b.	Provide URI endpoints to any application that needs rates
+Key Features
+1.	Daily Rate Display: Fetch and display rates every morning via scheduled job.
+2.	Historical Data: Store all rates with timestamp and provide search filter capabilities.
+3.	Rate Adjustments: Users to modify rates with changes logged for auditing.
+4.	Integration: Export adjusted rates to FIS rates plan in the required format.
+5.	User Management: Role based access, for example, viewer, editor, admin.
+6.	Error Handling: Graceful handling of API failures with retry mechanism and alerts.
+Project  Phases 
+1.	Phase 1: Requirements and Setup – Discovery, architecture design, environment setup.
+2.	Phase 2: Core Development, Backend/Frontend Development – API Integration, database, scheduled task.
+3.	Phase 3: Testing, QA, UAT and Platform integrations. 
+4.	Phase 4: Deployment, training and go-live.
+Recommendations
+Rates Hub will transform Synovus’ rate management process by replacing outdated, manual methods with a modern, centralized and integrated system. By leveraging .Net and React, the system will deliver a secure, scalable and user-friendly experience for the Rates Committee and branch bankers, while integrating seamlessly with FIS Core Banking Platform, as well as providing URI endpoints to any auxiliary system that needs rates in real time. 

@@ -1,10 +1,10 @@
 from mcp.server.fastmcp import FastMCP
 from typing import Any , Optional
+import sys
 import os
-import json
-import asyncio
 import aiofiles
-
+import json
+    
 mcp = FastMCP(name="STM Agent",
               instructions="This is a STM to store user conversations.",
               port = 6000,
@@ -52,6 +52,7 @@ async def store_conversation(conversation_id: str,state: str, message: dict[str,
     return {"status": "success", "conversation_id": conversation_id, "message": message}
 
 
+
 @mcp.resource(uri="data://{conversation_id}/{state}/{messages}/get"
               ,mime_type="application/json",
               description="Get conversation messages from persistent storage",
@@ -87,6 +88,10 @@ async def get_conversation(conversation_id: str,state: str, messages: int | None
         
     # print(f"Getting messages for conversation {conversation_id}: last {messages} messages in state {state}")
     return {"status": "success", "conversation_id": conversation_id, "state": state, "message": existing_data['conversation'][-int(min(len(existing_data['conversation']),messages)):] if messages else existing_data['conversation'][-1]}
+
+
+
+
 
 
 # print(asyncio.run(get_conversation("test_conversation", "START")))

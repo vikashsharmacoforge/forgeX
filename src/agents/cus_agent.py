@@ -10,6 +10,7 @@ from mcp.server.fastmcp import FastMCP
 from customllm import CustomLLM 
 from stm_context_manager import store_messages, get_conversation
 from typing import Any
+from langchain_core.prompts import PromptTemplate
 
 
 llm = CustomLLM()
@@ -41,6 +42,7 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
     Analyse the project requirements and the collect functional and non-functional requirements.
     Once all the requirements are extracted , generate user stories based on these requirements.
     """
+    
     # get the conversation messages from persistent storage
     history  = []
     try:
@@ -52,7 +54,7 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
     
     
     response = llm.invoke(sys_prompt=sys_prompt,input = prompt , history = history[:-1])
-    print({"response": response})
+    # print({"response": response})
     
     try:
         await  store_messages(uuid , state , {"role":"assistant","content": response})  
