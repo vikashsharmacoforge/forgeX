@@ -1,3 +1,5 @@
+"""MCP Client for Stdio Communication"""
+# https://modelcontextprotocol.io/quickstart/client
 import asyncio
 from typing import Optional
 from contextlib import AsyncExitStack

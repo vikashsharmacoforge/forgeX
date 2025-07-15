@@ -1,5 +1,5 @@
 """MCP Streamable HTTP Client"""
-
+# https://github.com/invariantlabs-ai/mcp-streamable-http/blob/main/python-example/client/client.py
 import argparse
 import asyncio
 from typing import Optional
