@@ -106,7 +106,16 @@
 ---
 
 ## How to Run
-1. **Set up .env file**
+1.  **Setting up n8n Workflow**
+   Set UP n8n using 
+  [🔗](https://ntlgnoida-my.sharepoint.com/:w:/r/personal/vikash_sharma_coforge_com/Documents/Forge-X/Documentation/n8n/n8n%20Internal%20Documentation.docx?d=w6f9b99f2ddba49c59c8001e98b6440fe&csf=1&web=1&e=ia1bkq)
+
+  Create a new workflow and copy paste the json from 
+  src>wf>n8n workflow.json
+
+  Set the workflow in active mode
+   
+3. **Set up .env file**
    ```
    AZURE_OPENAI_API_KEY = "enter your key"
    AZURE_OPENAI_ENDPOINT = "enter your endpoint"
@@ -118,29 +127,29 @@
    model = "enter model name"
    ```
    Save this in ForgeX Folder
-2. **Install Dependencies**
+4. **Install Dependencies**
    ```
    pip install -r requirements.txt
    ```
 
-3. **Start the STM Server**
+5. **Start the STM Server**
    ```
    python stm.py
    ```
 
-4. **Start Agent Servers**
+6. **Start Agent Servers**
    ```
    python getpr.py
    python cus_agent.py
    python hitl.py
    ```
 
-5. **Start the Communication Server**
+7. **Start the Communication Server**
    ```
    python server.py
    ```
 
-6. **Run the Frontend**
+8. **Run the Frontend**
    ```
    shiny run app.py
    ```
