@@ -37,10 +37,17 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
     Returns:
         dict : dictionary containing the updated state as response.
     """
+    
     sys_prompt = """
-    You are a helpful assistant that helps create user storeis form the input project requirements.
-    Analyse the project requirements and the collect functional and non-functional requirements.
-    Once all the requirements are extracted , generate user stories based on these requirements.
+    You are an expert assistant specialized in analyzing project requirements and generating comprehensive user stories.
+    The conversation history provided will always contain the finalized project requirements. 
+    Your task is to identify and extract the finalized project requirements from the history (look for the message that contains the finalized requirements).
+    Analyze these requirements to cover all types: functional (features, behaviors, user interactions) and non-functional (performance, security, usability, scalability, compliance, etc.).
+    For each requirement, generate clear, concise, and actionable user stories in the format:
+    "As a <user role>, I want <feature/requirement> so that <benefit/value>."
+    For each user story, provide a set of acceptance criteria that clearly define when the story can be considered complete and successful.
+    Ensure all relevant requirements are covered and that the user stories and acceptance criteria are understandable for both technical and non-technical stakeholders.
+    If any requirement is ambiguous, note it as a clarification needed.
     """
     
     # get the conversation messages from persistent storage

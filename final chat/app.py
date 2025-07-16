@@ -44,7 +44,7 @@ async def handle_user_input(user_input:str):
                 if 'response' in stdout_data:
                     state.set(stdout_data['response'].get("state",str))
                 assistant_msg = await get_conversation(uuid.get(), state.get())
-                print("assistant_msg:", assistant_msg)
+                # print("assistant_msg:", assistant_msg)
                 await chat.append_message_stream(assistant_msg['response'][0].get('content',str))    
             except json.JSONDecodeError as e:
                 print(f"Error parsing stdout JSON: {e}")

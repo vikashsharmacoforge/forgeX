@@ -77,27 +77,35 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
     finally:
         if client:
             await client.cleanup()
+             
+    
     
     sys_prompt = f"""
-        Below is the relevant to the user input prompt.
+        You are a highly skilled assistant for a Project Owner, specializing in gathering, clarifying, and finalizing project requirements.
+
+        Your tasks are:
+        1. Carefully analyze the user's input and the provided context below to understand the project domain and requirements.
+        2. Proactively suggest improvements, additions, or clarifications to the requirements using both the provided context and your own expertise.
+        3. If you notice missing details or ambiguities, ask targeted questions to ensure all requirements are captured accurately and completely.
+        4. Each time the user provides new or updated requirements, summarize the current list and confirm any changes or additions.
+        5. Encourage the user to review and finalize the requirements. If the user indicates the requirements are finalized, explicitly ask for confirmation to proceed with creating user stories based on these finalized requirements.
+        6. Always be helpful, concise, and focused on ensuring the requirements are clear, complete, and actionable.
+        7. If you feel that all project requirements have been gathered and finalized, explicitly state whether the conversation state needs to be changed to proceed to the next phase (such as creating user stories), or if more information is still needed
+        you should return a json object at the end of your response stating:
+        "state": 'change state to next state' or 'don't change the state'
+        8. Always return the state json in the format ```json "state": "change state to next state"``` at the end of your response.
+
+        Provided context:
         {context}
-        Make sure to use the context in providing suggestions for creating project requirements.
-        You are an assistant agent for Project owner that helps get project requirements from user also helping user with suggestions from the given context and other possibel suggestions.
-        You have to get the  project requirements detials from the user and finalize them after asking for suggestions using the provided context.
-        Every time the user shares any project requirements add them to the previous ones.
-        End task is to finalize the project requirement from the user.
-        Once, the user has finalized the project requirements, Your task is to ask him to 
-        confirm that he wants to create user stories from the finalized project requirements.
     """
     
     classifier_prompt = """
-        You are just a expert classifier agent that can classify if the last user input has finalized the project requirements or not.
-        If the user is trying to add new requirements or not satisfied with current project requirements he surely hasn't finalized the project requirements.
-        Your only task is to classify last user input into 'yes' or 'no' by extracting the user sentiments on finalizing the project requirements from the provided input message.
-        If there is some update going on or some kind of suggestions are asked from the user about project requirements, then most probably the user hasn't finalized the project requirements yet.
-        Please identify if the project requirements are updated or finalised in the give prompt from the user.
-        if the project requirements are finalized return 'yes' else return 'no'.
-        Your only outputs are : either 'yes' or 'no'.
+        You are a classifier agent that determines if the state needs to be changed to the next state or not.
+        You are give a input message and bases on that you have to classify whether the state needs to be changed or not.
+        Now once , decided about the state change, You reponse should be :
+        'yes' if the state needs to be changed 
+        'no' if the state does not need to be changed
+        Do not return anything else.
     """
         
 
@@ -105,7 +113,14 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
     history  = []
     try:
         conversation = await get_conversation(uuid , state , msgs )
-        history = conversation.get("response", [])
+        history_res = conversation.get("response", [])
+        # remove the 'context' key from the history if it exists
+        history = []
+        for h in history_res:
+            if 'context' in h:
+                h.pop('context')
+            history.append(h)
+            
     except Exception as e:
         # print(f"Error retrieving conversation: {e}")
         return {"error": "Failed to retrieve conversation"}
@@ -114,8 +129,16 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
     response = llm.invoke(input = prompt , sys_prompt = sys_prompt,history = history[:-1])
     check = 'no'
     # if(len(history[:-1])>=3):
-    check = llm_classifier.invoke(input = response  , sys_prompt = classifier_prompt , history = history[-min(3,len(history)):-1] )
-    print(response , "\ncheck:", check)
+    
+    # extract state json from the response which is present as ```json{"state": "change state to next state"}```
+    state_json = response.split("```json")[1].split("```")[0].strip()
+    response = response.split("```json")[0].strip()
+    print("state_json:", state_json,"\nlength:", len(state_json))
+    
+    
+    
+    check = llm_classifier.invoke(input = state_json , sys_prompt = classifier_prompt )
+    # print(response ,"\nstate:",response, "\ncheck:", check)
     
     # change state based on the classifier response to 'CUS'
     try:
