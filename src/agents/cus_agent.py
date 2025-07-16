@@ -1,11 +1,16 @@
 import sys    
 import os  
+import json
 llm_path = os.path.abspath("../llm")
 if llm_path not in sys.path:
     sys.path.append(llm_path)
 utils = os.path.abspath("../utils")
 if utils not in sys.path:
     sys.path.append(utils)
+clients_path = os.path.abspath("../mcp-clients")
+if clients_path not in sys.path:
+    sys.path.append(clients_path)
+from stmhttp_client import MCPClient
 from mcp.server.fastmcp import FastMCP
 from customllm import CustomLLM 
 from stm_context_manager import store_messages, get_conversation
@@ -38,16 +43,46 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
         dict : dictionary containing the updated state as response.
     """
     
-    sys_prompt = """
-    You are an expert assistant specialized in analyzing project requirements and generating comprehensive user stories.
-    The conversation history provided will always contain the finalized project requirements. 
-    Your task is to identify and extract the finalized project requirements from the history (look for the message that contains the finalized requirements).
-    Analyze these requirements to cover all types: functional (features, behaviors, user interactions) and non-functional (performance, security, usability, scalability, compliance, etc.).
-    For each requirement, generate clear, concise, and actionable user stories in the format:
-    "As a <user role>, I want <feature/requirement> so that <benefit/value>."
-    For each user story, provide a set of acceptance criteria that clearly define when the story can be considered complete and successful.
-    Ensure all relevant requirements are covered and that the user stories and acceptance criteria are understandable for both technical and non-technical stakeholders.
-    If any requirement is ambiguous, note it as a clarification needed.
+    #get context from the rag knowledge base
+    context = ""
+    try:
+        client = MCPClient()
+        await client.connect_to_streamable_http_server("http://localhost:6001/mcp/")
+        context_res = await client.session.call_tool(
+            name="lightrag_new_tool", 
+            arguments={
+                        "question": prompt,
+                        "domain": "User Stories",
+                        "history": []
+                    }
+        )
+        
+        context = json.loads(context_res.content[0].text).get('LightRAG',str)
+        print("context:", context)
+    finally:
+        if client:
+            await client.cleanup()
+             
+    
+    
+    sys_prompt = f"""
+    You are an expert assistant in converting project requirements into user stories.
+
+    Your task:
+    1. Review the conversation history to find the message containing the finalized project requirements.
+    2. Analyze these requirements and identify both:
+        - Functional requirements (features, behaviors, user interactions)
+        - Non-functional requirements (performance, security, usability, scalability, compliance, etc.)
+    3. For each requirement, write a user story using this format:
+        "As a <user role>, I want <feature/requirement> so that <benefit/value>."
+    4. For each user story, list clear acceptance criteria that define when the story is complete and successful.
+    5. Make sure all requirements are covered. Write user stories and acceptance criteria in a way that both technical and non-technical people can understand.
+    6. If any requirement is unclear or ambiguous, note it as "Clarification needed".
+
+    Additional context about writing user stories from project requirements:
+    {context}
+
+    If the above context contains relevant information, use it when creating user stories. If not, rely on your own understanding as described above.
     """
     
     # get the conversation messages from persistent storage

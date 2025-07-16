@@ -1,36 +1,36 @@
-# import os
-# import sys
-# import asyncio
-# import json
-# clients_path = os.path.abspath("./src/mcp-clients")
-# # rag_path = os.path.abspath("/src/memory/lightrag")
-# sys.path.append(clients_path)
-# from stmhttp_client import MCPClient
-# # sys.append(rag_path)
+import os
+import sys
+import asyncio
+import json
+clients_path = os.path.abspath("./src/mcp-clients")
+# rag_path = os.path.abspath("/src/memory/lightrag")
+sys.path.append(clients_path)
+from stmhttp_client import MCPClient
+# sys.append(rag_path)
 
 
 
-# async def call_tool_():
-#     try:
-#         client = MCPClient()
-#         await client.connect_to_streamable_http_server("http://localhost:6001/mcp/")
-#         print( await client.session.list_tools())
-#         response = await client.session.call_tool(
-#             name="lightrag_new_tool", 
-#             arguments={
-#                         "domain": "Project Management",
-#                         "question": "what is rates hub? explain in brief",
-#                         "history": []
-#                     }
-#         )
+async def call_tool_():
+    try:
+        client = MCPClient()
+        await client.connect_to_streamable_http_server("http://localhost:6001/mcp/")
+        # print( await client.session.list_tools())
+        response = await client.session.call_tool(
+            name="lightrag_new_tool", 
+            arguments={
+                        "domain": "User Stories",
+                        "question": "what are best practices for creating user stories?",
+                        "history": []
+                    }
+        )
         
-#         print("response:" , json.loads(response.content[0].text).get('LightRAG',str))
-#     finally:
-#         if client:
-#             await client.cleanup()
+        print("response:" , json.loads(response.content[0].text).get('LightRAG',str))
+    finally:
+        if client:
+            await client.cleanup()
     
 
-# asyncio.run(call_tool_())
+asyncio.run(call_tool_())
 
 response = """
 Based on your request to create a rate management system and the provided context about the Rates Hub project, I'll compile a comprehensive set of requirements. Let me present the current project requirements that combine both the initial understanding and what we've discussed:
@@ -152,8 +152,8 @@ Would you like to add, modify, or remove any of these requirements? Once you con
 
 """
 
-state_json = response.split("```json")[1].split("```")[0].strip()
-response = response.split("```json")[0].strip()
+# state_json = response.split("```json")[1].split("```")[0].strip()
+# response = response.split("```json")[0].strip()
 
 
-print("state:",state_json)
+# print("state:",state_json)

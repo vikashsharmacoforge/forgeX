@@ -70,7 +70,7 @@ async def hitl(prompt: str,state:str , uuid: str)-> dict[str,Any]:
         9.If you feel that all user stories have been  finalized, explicitly state whether the conversation state needs to be changed to proceed to the next phase or if more information is still needed
         you should return a json object at the end of your response stating:
         "state": 'change state to next state' or 'don't change the state'
-        10. Always return the state json in the format ```json "state": "change state to next state"``` at the end of your response.
+        10. Always return the state json as json object in the format ```json {"state": "change state to next state"}``` at the end of your response.
 
         Your goal is to make it easy for the user to see exactly which user stories were updated and which remain unchanged.
     """

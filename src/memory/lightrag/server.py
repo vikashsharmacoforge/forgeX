@@ -68,11 +68,11 @@ async def lightrag_new_tool(domain:str ,directory_selection:str=None, question:s
     try:
 
         if domain == 'Project Management':
-            data_path = './data/Project'
-            working_dir = './data/Aadarsh_Project'
+            data_path = './data/PM/Project'
+            working_dir = './data/PM/Aadarsh_Project'
         elif domain == 'User Stories':
-            data_path = './data/User_Stories'
-            working_dir = './data/Aadarsh_User_Stories'
+            data_path = './data/US/User_Stories'
+            working_dir = './data/US/Aadarsh_User_Stories'
         elif domain == 'HR':
             data_path = './data/HR'
             working_dir = './data/Aadarsh_HR'
