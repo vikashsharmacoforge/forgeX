@@ -13,26 +13,26 @@ mcp = FastMCP(name="STM Agent",
 
 
 @mcp.tool()
-async def store_conversation(conversation_id: str,state: str, message: dict[str,Any]) -> dict[str,Any]:
+async def store_conversation(conversation_id: str,state: str, message: dict[str,Any] = None , persona: dict = None) -> None:
     """
     This tool stores the conversation messages in a persistent storage.
     
     Args:
         conversation_id (str): Unique identifier for the conversation.
         state (str): Current state of the conversation.
-        message (str): The message to be stored.
+        message (dict[str, Any], optional): The message to be stored in the conversation.
+        persona (dict, optional): The persona information to be stored.
         
-    Returns:
-        dict: Confirmation of the stored message.
     """
-    existing_data = {"conversation":[]}
     # Here you would implement the logic to store the message in a database or file
         # dir_path = os.path.abspath(f"./../storage/{conversation_id}")
         # file_path = os.path.join(dir_path, f"{state}.json")
     dir_path = os.path.abspath(f"./../storage/")
     file_path = os.path.join(dir_path, f"{conversation_id}.json")
-    # print("dir_path:", dir_path)
-    # print("file_path:", file_path)
+    
+    existing_data = {"persona":{},"conversation":[]}
+        # print("dir_path:", dir_path)
+        # print("file_path:", file_path)
     if os.path.exists(file_path):
         # print("extracting data")
         async with aiofiles.open(file_path, "r") as f:
@@ -41,23 +41,28 @@ async def store_conversation(conversation_id: str,state: str, message: dict[str,
                 existing_data = json.loads(content)
     else:
         os.makedirs(dir_path, exist_ok=True)
-
-    # print(existing_data)
-    existing_data['conversation'].append(message)
-
-    async with aiofiles.open(file_path, "w") as f:
-        await f.write(json.dumps(existing_data, indent=4))
+    
+    if message:
+        # print(existing_data)
+        existing_data['conversation'].append(message)
+  
+        # print(f"Storing message for conversation {conversation_id}: {message}.")
+        # return {"status": "success", "conversation_id": conversation_id, "message": message}
+    if persona:
+        existing_data['persona'] = persona
         
-    print(f"Storing message for conversation {conversation_id}: {message}.")
-    return {"status": "success", "conversation_id": conversation_id, "message": message}
+    async with aiofiles.open(file_path, "w") as f:
+            await f.write(json.dumps(existing_data, indent=4))
+            
+        
 
 
 
-@mcp.resource(uri="data://{conversation_id}/{state}/{messages}/get"
+@mcp.resource(uri="data://{conversation_id}/{state}/{messages}/{persona}/get"
               ,mime_type="application/json",
               description="Get conversation messages from persistent storage",
               name="Get Conversation Messages")
-async def get_conversation(conversation_id: str,state: str, messages: int | None = None) -> dict[str,Any]:
+async def get_conversation(conversation_id: str,state: str, messages: int | None = None, persona:bool = False) -> dict[str,Any]:
     """
     This resource retrieves the conversation messages from persistent storage.
 
@@ -71,7 +76,7 @@ async def get_conversation(conversation_id: str,state: str, messages: int | None
         If messages is None, returns the last message in the specified state.
     """
     
-    existing_data = {"conversation":[]}
+    existing_data = {"persona":{},"conversation":[]}
     # Here you would implement the logic to store the message in a database or file
         # dir_path = os.path.abspath(f"./../storage/{conversation_id}")
         # file_path = os.path.join(dir_path, f"{state}.json")
@@ -87,7 +92,10 @@ async def get_conversation(conversation_id: str,state: str, messages: int | None
 
         
     # print(f"Getting messages for conversation {conversation_id}: last {messages} messages in state {state}")
-    return {"status": "success", "conversation_id": conversation_id, "state": state, "message": existing_data['conversation'][-int(min(len(existing_data['conversation']),messages)):] if messages else existing_data['conversation'][-1]}
+    response = {"status": "success", "conversation_id": conversation_id, "state": state, "message": existing_data['conversation'][-int(min(len(existing_data['conversation']),messages)):] if messages else existing_data['conversation'][-1]}
+    if persona:
+        response['persona'] = existing_data['persona']
+    return response
 
 
 

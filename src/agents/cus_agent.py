@@ -43,6 +43,22 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
         dict : dictionary containing the updated state as response.
     """
     
+    # get the conversation messages and persona from persistent storage
+    history = []
+    persona = {}
+    try:
+        conversation = await get_conversation(uuid , state , msgs , persona = True )
+        persona = conversation.get("persona", {})
+        history_res = conversation.get("response", [])
+        # remove the 'context' key from the history if it exists
+        for h in history_res:
+            if 'context' in h:
+                h.pop('context')
+            history.append(h)
+    except Exception as e:
+        print(f"Error retrieving conversation and persona: {e}")
+        return {"error": "Failed to retrieve conversation and persona"}
+    
     #get context from the rag knowledge base
     context = ""
     try:
@@ -53,7 +69,8 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
             arguments={
                         "question": prompt,
                         "domain": "User Stories",
-                        "history": []
+                        "history": [],
+                        "user_prompt": json.dumps(persona)
                     }
         )
         
@@ -84,15 +101,6 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
 
     If the above context contains relevant information, use it when creating user stories. If not, rely on your own understanding as described above.
     """
-    
-    # get the conversation messages from persistent storage
-    history  = []
-    try:
-        conversation = await get_conversation(uuid , state , msgs )
-        history = conversation.get("response", [])
-    except Exception as e:
-        print(f"Error retrieving conversation: {e}")
-        return {"error": "Failed to retrieve conversation"}
     
     
     response = llm.invoke(sys_prompt=sys_prompt,input = prompt , history = history[:-1])

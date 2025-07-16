@@ -49,7 +49,7 @@ base_url = config.get("Ollama_Model", "base_url")
 embedding_model = config.get("Ollama_Model", "embedding_model")
 
 @mcp.tool()
-async def lightrag_new_tool(domain:str ,directory_selection:str=None, question:str=None, history:list=[]) -> dict:
+async def lightrag_new_tool(domain:str ,user_prompt:str|None = None,directory_selection:str=None, question:str=None, history:list=[]) -> dict:
     """
     description:
     1. Initialize RAG
@@ -130,7 +130,7 @@ async def lightrag_new_tool(domain:str ,directory_selection:str=None, question:s
         # resp_async, context_mix = await run_async_query(rag, question, mode, conversation_history_mix)
         resp_async = rag.query(
                     question,
-                    param=QueryParam(mode=mode, top_k=5, conversation_history=history)
+                    param=QueryParam(mode=mode, top_k=5, conversation_history=history,user_prompt=user_prompt)
                 )
         # eval_result_mix = validateResponse(question=question, answer=resp_async, context=context_mix, reference_questions=questions, reference_answers=answers, llm=llm, embeddings=embeddings)
         response["LightRAG"] = resp_async

@@ -58,6 +58,23 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
         dict : dictionary containing the updated state as response.
     """
     
+    # get the conversation messages and persona from persistent storage
+    history  = []
+    persona = {}
+    try:
+        conversation = await get_conversation(uuid , state , msgs , persona = True)
+        persona = conversation.get("persona", {})
+        history_res = conversation.get("response", [])
+        # remove the 'context' key from the history if it exists
+        for h in history_res:
+            if 'context' in h:
+                h.pop('context')
+            history.append(h)
+            
+    except Exception as e:
+        # print(f"Error retrieving conversation: {e}")
+        return {"error": "Failed to retrieve conversation"}
+    
     #get context from the rag knowledge base
     context = ""
     try:
@@ -68,7 +85,8 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
             arguments={
                         "question": prompt,
                         "domain": "Project Management",
-                        "history": []
+                        "history": [],
+                        "user_prompt": json.dumps(persona["Project_Requirement"])
                     }
         )
         
@@ -108,22 +126,6 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
         Do not return anything else.
     """
         
-
-    # get the conversation messages from persistent storage
-    history  = []
-    try:
-        conversation = await get_conversation(uuid , state , msgs )
-        history_res = conversation.get("response", [])
-        # remove the 'context' key from the history if it exists
-        history = []
-        for h in history_res:
-            if 'context' in h:
-                h.pop('context')
-            history.append(h)
-            
-    except Exception as e:
-        # print(f"Error retrieving conversation: {e}")
-        return {"error": "Failed to retrieve conversation"}
 
     
     response = llm.invoke(input = prompt , sys_prompt = sys_prompt,history = history[:-1])

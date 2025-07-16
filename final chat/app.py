@@ -12,7 +12,12 @@ if client_path not in sys.path:
 utils_path = os.path.abspath("../src/utils")
 if utils_path not in sys.path:
     sys.path.append(utils_path)
+llm_path = os.path.abspath("../src/llm")
+if llm_path not in sys.path:
+    sys.path.append(llm_path)
+from customllm import CustomLLM
 from stm_context_manager import store_messages , get_conversation
+from persona import persona
 
 chat = ui.Chat(id="agent_chat")
 
@@ -21,12 +26,19 @@ chat.ui()
 INITIAL_STATE = 'START'
 state = reactive.Value(INITIAL_STATE)
 uuid = reactive.Value(str(uuid.uuid4()))
+persona_json = reactive.Value("")
 
 @chat.on_user_submit
 async def handle_user_input(user_input:str):
     
     try:
-        await store_messages(uuid.get(), state.get(), {"role":"user","content":user_input})  
+        persona_json = await persona(llm = CustomLLM(), messages = [user_input], persona=persona_json.get())
+    except Exception as e:
+        print(f"Error in persona processing: {e}")
+        await chat.append_message_stream("Error processing persona")
+    
+    try:
+        await store_messages(uuid.get(), state.get(), {"role":"user","content":user_input}, persona=json.loads(persona_json.get()))  
     except Exception as e:
         print(f"Error storing messages: {e}")
         
