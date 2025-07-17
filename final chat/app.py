@@ -26,13 +26,16 @@ chat.ui()
 INITIAL_STATE = 'START'
 state = reactive.Value(INITIAL_STATE)
 uuid = reactive.Value(str(uuid.uuid4()))
-persona_json = reactive.Value("")
+persona_json = reactive.Value("{}")
+user_messages = reactive.Value([])
 
 @chat.on_user_submit
 async def handle_user_input(user_input:str):
-    
+    user_messages.set(user_messages.get() + [user_input])
     try:
-        persona_json = await persona(llm = CustomLLM(), messages = [user_input], persona=persona_json.get())
+        persona_res = await persona(llm = CustomLLM(), messages = user_messages.get(), persona=persona_json.get())
+        persona_json.set(persona_res)
+        print("persona_res:",persona_res)
     except Exception as e:
         print(f"Error in persona processing: {e}")
         await chat.append_message_stream("Error processing persona")

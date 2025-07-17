@@ -180,13 +180,13 @@ user_persona_json:
 
     chain = prompt | llm
     response = chain.invoke({"messages": messages, "persona_info": persona})
-    print(response.content)
+    # print(response)
     # print(type(response))
-    if "No new information" in response.content:
+    if "no relevant information" in response.lower():
         print(persona)
         return persona
     else:
-        persona_str = response.content
+        persona_str = response
         start = persona_str.find('{')
         end = persona_str.rfind('}')+1
         persona = persona_str[start:end]

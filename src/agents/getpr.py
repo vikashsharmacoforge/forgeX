@@ -16,6 +16,7 @@ if clients_path not in sys.path:
 from stmhttp_client import MCPClient
 from customllm import CustomLLM
 from stm_context_manager import store_messages , get_conversation
+from lightrag_wrapper import lightrag_query
 from langchain_core.prompts import PromptTemplate
 # from langchain_mcp_adapters.tools import convert_mcp_tool_to_langchain_tool , load_mcp_tools
 # from langchain_core.prompts import PromptTemplate
@@ -62,7 +63,7 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
     history  = []
     persona = {}
     try:
-        conversation = await get_conversation(uuid , state , msgs , persona = True)
+        conversation = await get_conversation(uuid , state , msgs , persona = 1)
         persona = conversation.get("persona", {})
         history_res = conversation.get("response", [])
         # remove the 'context' key from the history if it exists
@@ -72,29 +73,37 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
             history.append(h)
             
     except Exception as e:
-        # print(f"Error retrieving conversation: {e}")
-        return {"error": "Failed to retrieve conversation"}
+        print(f"Error retrieving conversation: {e}")
+        return {"error": "Failed to retrieve getpr conversation and persona"}
+    
+    print("persona pr:",persona)
+
     
     #get context from the rag knowledge base
-    context = ""
+    rag_user_prompt = f"""
+    You are a project analysis assistant. I am providing a JSON document that contains detailed requirements and specifications for a new project. Your task is to analyze this input and generate a comprehensive context that includes:
+ 
+    1. A summary of the project's goals and scope.
+    2. A breakdown of key functional and non-functional requirements.
+    3. Identification of potential modules or components.
+    4. Any dependencies, risks, or considerations that should be addressed.
+    5. Recommendations for how to proceed with implementation or planning.
+    
+    Please ensure the output is structured, clear, and actionable for project planning purposes.
+    
+    Here is the input JSON:
+    {json.dumps(persona['Project_Requirement'] if 'Project_Requirement' in persona else {})}
+    
+    Output:
+    - Structured context summary
+    - Requirement breakdown
+    - Suggested next steps
+    """
     try:
-        client = MCPClient()
-        await client.connect_to_streamable_http_server("http://localhost:6001/mcp/")
-        context_res = await client.session.call_tool(
-            name="lightrag_new_tool", 
-            arguments={
-                        "question": prompt,
-                        "domain": "Project Management",
-                        "history": [],
-                        "user_prompt": json.dumps(persona["Project_Requirement"])
-                    }
-        )
-        
-        context = json.loads(context_res.content[0].text).get('LightRAG',str)
-        print("context:", context)
-    finally:
-        if client:
-            await client.cleanup()
+        context = await lightrag_query(prompt, domain="Project Management", user_prompt=rag_user_prompt,history=history)
+    except Exception as e:
+        print(f"Error querying LightRAG PM knowledge base: {e}")
+        context = "No relevant context found."
              
     
     
@@ -105,13 +114,21 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
         1. Carefully analyze the user's input and the provided context below to understand the project domain and requirements.
         2. Proactively suggest improvements, additions, or clarifications to the requirements using both the provided context and your own expertise.
         3. If you notice missing details or ambiguities, ask targeted questions to ensure all requirements are captured accurately and completely.
-        4. Each time the user provides new or updated requirements, summarize the current list and confirm any changes or additions.
+        4. Each time the user provides new or updated requirements, append it to the current list and confirm any changes or additions.
         5. Encourage the user to review and finalize the requirements. If the user indicates the requirements are finalized, explicitly ask for confirmation to proceed with creating user stories based on these finalized requirements.
         6. Always be helpful, concise, and focused on ensuring the requirements are clear, complete, and actionable.
-        7. If you feel that all project requirements have been gathered and finalized, explicitly state whether the conversation state needs to be changed to proceed to the next phase (such as creating user stories), or if more information is still needed
-        you should return a json object at the end of your response stating:
-        "state": 'change state to next state' or 'don't change the state'
-        8. Always return the state json in the format ```json "state": "change state to next state"``` at the end of your response.
+        7. Every time you need to check if project requirements have been gathered and finalized, explicitly ask the decision of the user whether the conversation state needs to be changed to proceed to the next phase (such as creating user stories), or if more information is still needed.
+        8. Always return a json object at the end of your response stating:
+        ```json
+        "state": 'change state to next state'  
+        ```
+        or 
+        ```json
+        "state": 'don't change state to next state'  
+        ```
+        
+        
+        Important: Do not mention or refer to the context provided above in your output. Only use it to inform your response.
 
         Provided context:
         {context}
@@ -130,7 +147,7 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
     
     response = llm.invoke(input = prompt , sys_prompt = sys_prompt,history = history[:-1])
     check = 'no'
-    # if(len(history[:-1])>=3):
+    print("response:", response)
     
     # extract state json from the response which is present as ```json{"state": "change state to next state"}```
     state_json = response.split("```json")[1].split("```")[0].strip()
@@ -140,15 +157,13 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
     
     
     check = llm_classifier.invoke(input = state_json , sys_prompt = classifier_prompt )
-    # print(response ,"\nstate:",response, "\ncheck:", check)
+    # print(response ,"\nstate:",state_json, "\ncheck:", check)
     
     # change state based on the classifier response to 'CUS'
     try:
         if('yes' in check.lower() ): 
             state = 'CUS'
-        await  store_messages(uuid , state , {"role":"assistant","content": response,"context": context})
-            
-        
+        await  store_messages(uuid , state , {"role":"assistant","content": response,"context": context})   
     except Exception as e:
         print(f"Error storing messages: {e}")
         return {"error": "Failed to store messages"}

@@ -14,6 +14,7 @@ from stmhttp_client import MCPClient
 from mcp.server.fastmcp import FastMCP
 from customllm import CustomLLM 
 from stm_context_manager import store_messages, get_conversation
+from lightrag_wrapper import lightrag_query
 from typing import Any
 from langchain_core.prompts import PromptTemplate
 
@@ -47,7 +48,7 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
     history = []
     persona = {}
     try:
-        conversation = await get_conversation(uuid , state , msgs , persona = True )
+        conversation = await get_conversation(uuid , state , msgs , persona = 1 )
         persona = conversation.get("persona", {})
         history_res = conversation.get("response", [])
         # remove the 'context' key from the history if it exists
@@ -56,29 +57,38 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
                 h.pop('context')
             history.append(h)
     except Exception as e:
-        print(f"Error retrieving conversation and persona: {e}")
+        print(f"Error retrieving conversation cus_agent and persona: {e}")
         return {"error": "Failed to retrieve conversation and persona"}
     
+    print("persona cus:",persona)
+    
     #get context from the rag knowledge base
-    context = ""
+    rag_user_prompt = f"""
+    You are a product manager assistant specializing in extracting user story creation guidelines from a knowledge base. I will provide a JSON object called 'persona' that contains specific preferences, priorities, and requirements for user story creation.
+
+    Your directive:
+    - Carefully review the persona JSON to understand the user's preferences (e.g., preferred format, level of detail, grouping, terminology, acceptance criteria style, etc.).
+    - From the provided knowledge base, extract only the guidelines, best practices, and instructions relevant to creating user stories that match these preferences.
+    - Focus on extracting actionable advice, templates, examples, and recommendations that align with the persona's requirements.
+    - If the persona specifies grouping (e.g., by epics or modules), extract guidelines related to such organization.
+    - Use the language, tone, and structure indicated in the persona when presenting the extracted guidelines.
+    - If any preference is unclear, note it as "Clarification needed" in your output.
+
+    Here is the persona JSON:
+    {json.dumps(persona)}
+
+    Output:
+    - A summary of user story creation guidelines from the knowledge base, customized to the persona's preferences
+    - Grouped and formatted as specified in the persona
+    - Acceptance criteria guidelines aligned with persona requirements
+    """
+    
     try:
-        client = MCPClient()
-        await client.connect_to_streamable_http_server("http://localhost:6001/mcp/")
-        context_res = await client.session.call_tool(
-            name="lightrag_new_tool", 
-            arguments={
-                        "question": prompt,
-                        "domain": "User Stories",
-                        "history": [],
-                        "user_prompt": json.dumps(persona)
-                    }
-        )
+        context = await lightrag_query(prompt, domain="User Stories", user_prompt=rag_user_prompt,history=history)
+    except Exception as e:
+        print(f"Error querying LightRAG US knowledge base: {e}")
+        context = "No relevant context found."
         
-        context = json.loads(context_res.content[0].text).get('LightRAG',str)
-        print("context:", context)
-    finally:
-        if client:
-            await client.cleanup()
              
     
     
@@ -99,6 +109,7 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
     Additional context about writing user stories from project requirements:
     {context}
 
+    Important: Do not mention or refer to the context provided above in your output. Only use it to inform your response.
     If the above context contains relevant information, use it when creating user stories. If not, rely on your own understanding as described above.
     """
     
@@ -107,7 +118,7 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
     # print({"response": response})
     
     try:
-        await  store_messages(uuid , state , {"role":"assistant","content": response})  
+        await  store_messages(uuid , state , {"role":"assistant","content": response,"context":context})  
     except Exception as e:
         print(f"Error storing messages: {e}")
         return {"error": "Failed to store messages"}

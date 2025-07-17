@@ -13,7 +13,7 @@ mcp = FastMCP(name="STM Agent",
 
 
 @mcp.tool()
-async def store_conversation(conversation_id: str,state: str, message: dict[str,Any] = None , persona: dict = None) -> None:
+async def store_conversation(conversation_id: str,state: str, message: dict[str,Any] = None , persona: dict | None = None) -> None:
     """
     This tool stores the conversation messages in a persistent storage.
     
@@ -29,6 +29,7 @@ async def store_conversation(conversation_id: str,state: str, message: dict[str,
         # file_path = os.path.join(dir_path, f"{state}.json")
     dir_path = os.path.abspath(f"./../storage/")
     file_path = os.path.join(dir_path, f"{conversation_id}.json")
+    
     
     existing_data = {"persona":{},"conversation":[]}
         # print("dir_path:", dir_path)
@@ -50,6 +51,7 @@ async def store_conversation(conversation_id: str,state: str, message: dict[str,
         # return {"status": "success", "conversation_id": conversation_id, "message": message}
     if persona:
         existing_data['persona'] = persona
+    
         
     async with aiofiles.open(file_path, "w") as f:
             await f.write(json.dumps(existing_data, indent=4))
@@ -62,7 +64,7 @@ async def store_conversation(conversation_id: str,state: str, message: dict[str,
               ,mime_type="application/json",
               description="Get conversation messages from persistent storage",
               name="Get Conversation Messages")
-async def get_conversation(conversation_id: str,state: str, messages: int | None = None, persona:bool = False) -> dict[str,Any]:
+async def get_conversation(conversation_id: str,state: str, messages: int | None = None, persona:int = 0) -> dict[str,Any]:
     """
     This resource retrieves the conversation messages from persistent storage.
 
@@ -70,7 +72,7 @@ async def get_conversation(conversation_id: str,state: str, messages: int | None
         conversation_id (str): Unique identifier for the conversation.
         state (str): Current state of the conversation.
         messages (int | None, optional): Number of messages to retrieve. If None, retrieves the last message.
-
+        persona (int, optional): If 1, retrieves the persona information.
     Returns:
         dict[str,Any]: A dictionary containing the status, conversation ID, state, and the requested messages.
         If messages is None, returns the last message in the specified state.
@@ -90,9 +92,11 @@ async def get_conversation(conversation_id: str,state: str, messages: int | None
             if content:
                 existing_data = json.loads(content)
 
+    # print("content:",existing_data)
+
         
     # print(f"Getting messages for conversation {conversation_id}: last {messages} messages in state {state}")
-    response = {"status": "success", "conversation_id": conversation_id, "state": state, "message": existing_data['conversation'][-int(min(len(existing_data['conversation']),messages)):] if messages else existing_data['conversation'][-1]}
+    response = {"status": "success", "conversation_id": conversation_id, "state": state, "message": existing_data['conversation'][-int(min(len(existing_data['conversation']),messages)):] }
     if persona:
         response['persona'] = existing_data['persona']
     return response
