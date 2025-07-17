@@ -15,6 +15,10 @@ if utils_path not in sys.path:
 llm_path = os.path.abspath("../src/llm")
 if llm_path not in sys.path:
     sys.path.append(llm_path)
+memory_path = os.path.abspath("../src/memory")
+if memory_path not in sys.path:
+    sys.path.append(memory_path)
+from longterm import LongTermMemory
 from customllm import CustomLLM
 from stm_context_manager import store_messages , get_conversation
 from persona import persona
@@ -60,10 +64,17 @@ async def handle_user_input(user_input:str):
                     state.set(stdout_data['response'].get("state",str))
                 assistant_msg = await get_conversation(uuid.get(), state.get())
                 # print("assistant_msg:", assistant_msg)
-                await chat.append_message_stream(assistant_msg['response'][0].get('content',str))    
+                await chat.append_message_stream(assistant_msg['response'][0].get('content',str))  
             except json.JSONDecodeError as e:
                 print(f"Error parsing stdout JSON: {e}")
                 await chat.append_message_stream("Error processing response")
+                
+            if(state.get()=="FINALIZED"):
+                mem0 = LongTermMemory()
+                try:
+                    mem0.add_to_memory(persona_json.get())
+                except Exception as e:
+                    print(f"Error adding to mem0 memory: {e}")
     else:
         print(f"Error: {response.status_code}")
         print(response.text)
