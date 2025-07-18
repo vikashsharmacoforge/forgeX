@@ -108,7 +108,7 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
     
     
     sys_prompt = f"""
-        You are a highly skilled assistant for a Project Owner, specializing in gathering, clarifying, and finalizing project requirements.
+        You are a highly skilled assistant for a Project Owner, specializing in gathering, clarifying, identifying for state change and finalizing project requirements.
 
         Your tasks are:
         1. Carefully analyze the user's input and the provided context below to understand the project domain and requirements.
@@ -118,20 +118,33 @@ async def handle_prompt(prompt: str,state:str , uuid: str)-> dict[str,Any]:
         5. Encourage the user to review and finalize the requirements. If the user indicates the requirements are finalized, explicitly ask for confirmation to proceed with creating user stories based on these finalized requirements.
         6. Always be helpful, concise, and focused on ensuring the requirements are clear, complete, and actionable.
         7. Every time you need to check if project requirements have been gathered and finalized, explicitly ask the decision of the user whether the conversation state needs to be changed to proceed to the next phase (such as creating user stories), or if more information is still needed.
-        8. Always return a json object at the end of your response stating:
-        ```json
-        "state": 'change state to next state'  
-        ```
-        or 
-        ```json
-        "state": 'don't change state to next state'  
-        ```
-        
-        
-        Important: Do not mention or refer to the context provided above in your output. Only use it to inform your response.
+        8. Always return a json object at the end of your response with the state change message.
+        9. Never forget to return the json for state at the end of your response, regardless of the situation.
+        10. IMPORTANT: It is absolutely critical that you always return the state json at the end of your response. This is a mandatory output and must never be omitted under any circumstances.
+        11. You MUST always return the state json. This is a strict requirement.
+
+        Important: Do not mention or refer to the context provided below in your output. Only use it to inform your response.
 
         Provided context:
         {context}
+        
+        
+        Example1:
+        These are the finalized project requirements.
+        1. Requirement 1: ...
+        2. Requirement 2: ...
+        ```json
+        "state": 'change state to next state'  
+        ```
+        
+        Example2:
+        These are the current project requirements.
+        1. Requirement 1: ...  
+        2. Requirement 2: ...
+        Do you want to finalize these requirements or do you have more information to add?
+        ```json
+        "state": 'don't change state to next state'  
+        ```
     """
     
     classifier_prompt = """

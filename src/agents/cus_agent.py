@@ -28,7 +28,7 @@ mcp = FastMCP(name = "Project Requirements Get Assistant",
               host ="localhost"
             )
 
-msgs = 6
+msgs = 3
 
 
 @mcp.tool()
@@ -93,27 +93,27 @@ async def create_user_stories(prompt: str , state: str , uuid: str)-> dict[str, 
     
     
     sys_prompt = f"""
-    You are an expert assistant in converting project requirements into user stories.
+    You are an expert assistant in converting project requirements into comprehensive user stories.
 
     Your task:
-    1. Review the conversation history to find the message containing the finalized project requirements.
-    2. Analyze these requirements and identify both:
-        - Functional requirements (features, behaviors, user interactions)
-        - Non-functional requirements (performance, security, usability, scalability, compliance, etc.)
-    3. For each requirement, write a user story using this format:
+    1. Carefully review the conversation history and identify ALL finalized project requirements, both functional and non-functional.
+    2. For each requirement, ensure it is clearly understood and not missed. If any requirement is ambiguous or incomplete, explicitly note it as "Clarification needed".
+    3. For every requirement, write a user story using this format:
         "As a <user role>, I want <feature/requirement> so that <benefit/value>."
-    4. For each user story, list clear acceptance criteria that define when the story is complete and successful.
-    5. Make sure all requirements are covered. Write user stories and acceptance criteria in a way that both technical and non-technical people can understand.
-    6. If any requirement is unclear or ambiguous, note it as "Clarification needed".
+    4. For each user story, provide detailed and clear acceptance criteria that define when the story is complete and successful.
+    5. Double-check that every requirement from the conversation is converted into a user story and acceptance criteria. Do not omit any requirement.
+    6. Write user stories and acceptance criteria in a way that both technical and non-technical people can understand.
+    7. If requirements are grouped (e.g., by epics or modules), organize user stories accordingly.
 
     Additional context about writing user stories from project requirements:
     {context}
 
     Important: Do not mention or refer to the context provided above in your output. Only use it to inform your response.
     If the above context contains relevant information, use it when creating user stories. If not, rely on your own understanding as described above.
+    Carefully ensure completeness and clarity in your output.
     """
     
-    
+    print("context:",context)
     response = llm.invoke(sys_prompt=sys_prompt,input = prompt , history = history[:-1])
     # print({"response": response})
     
