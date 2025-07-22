@@ -1,0 +1,710 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d11" for="edge" attr.name="created_at" attr.type="long"/>
+<key id="d10" for="edge" attr.name="file_path" attr.type="string"/>
+<key id="d9" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d8" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d7" for="edge" attr.name="description" attr.type="string"/>
+<key id="d6" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d5" for="node" attr.name="created_at" attr.type="long"/>
+<key id="d4" for="node" attr.name="file_path" attr.type="string"/>
+<key id="d3" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="description" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_id" attr.type="string"/>
+<graph edgedefault="undirected"><node id="Rates Hub">
+  <data key="d0">Rates Hub</data>
+  <data key="d1">organization</data>
+  <data key="d2">Rates Hub is a centralized rates management system designed to automate the process of publishing, approving, and distributing deposit and index rates for various financial products.&lt;SEP&gt;Rates Hub is a centralized system designed to modernize Synovus' rate management process, integrating with FIS Core Banking Platform.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450&lt;SEP&gt;chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Rates Committee Members">
+  <data key="d0">Rates Committee Members</data>
+  <data key="d1">person</data>
+  <data key="d2">Rates Committee Members are users responsible for setting, approving, and publishing rates for various bank products, including promotional and relationship-based rates.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Branch Bankers">
+  <data key="d0">Branch Bankers</data>
+  <data key="d1">person</data>
+  <data key="d2">Branch Bankers are users who access daily rate cards tailored to their branch and region, enabling them to offer accurate rates to customers.&lt;SEP&gt;Branch bankers are Synovus employees who interact with the Rates Hub system for rate-related tasks.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450&lt;SEP&gt;chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="FIS Core Banking Platform">
+  <data key="d0">FIS Core Banking Platform</data>
+  <data key="d1">organization</data>
+  <data key="d2">FIS Core Banking Platform is a financial system that requires integration with Rates Hub to access rates in real time.&lt;SEP&gt;FIS Core Banking Platform is a financial system used by Synovus for core banking operations and rate integration.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450&lt;SEP&gt;chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="MuleSoft">
+  <data key="d0">MuleSoft</data>
+  <data key="d1">organization</data>
+  <data key="d2">MuleSoft is an integration platform used to connect Rates Hub with the FIS Core Banking Platform and third-party systems.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="10Y Treasury">
+  <data key="d0">10Y Treasury</data>
+  <data key="d1">category</data>
+  <data key="d2">10Y Treasury refers to the 10-year Treasury bond rate, which is one of the index rates fetched by Rates Hub.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="20Y Treasury">
+  <data key="d0">20Y Treasury</data>
+  <data key="d1">category</data>
+  <data key="d2">20Y Treasury refers to the 20-year Treasury bond rate, another index rate fetched by Rates Hub.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Excel-Based Process">
+  <data key="d0">Excel-Based Process</data>
+  <data key="d1">event</data>
+  <data key="d2">The Excel-Based Process is the current manual method for determining, approving, and distributing rates, which is being replaced by Rates Hub.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Automation of Rates Management">
+  <data key="d0">Automation of Rates Management</data>
+  <data key="d1">event</data>
+  <data key="d2">Automation of Rates Management refers to the implementation of Rates Hub to streamline rate-related processes and reduce manual intervention.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Azure">
+  <data key="d0">Azure</data>
+  <data key="d1">geo</data>
+  <data key="d2">Azure is a cloud computing platform by Microsoft, used for hosting and scaling applications.&lt;SEP&gt;Azure is the cloud platform where Rates Hub will be deployed using Docker containers for scalability.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450&lt;SEP&gt;chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Automation Of Rates Management">
+  <data key="d0">Automation Of Rates Management</data>
+  <data key="d1">event</data>
+  <data key="d2">Automation Of Rates Management refers to the implementation of Rates Hub to streamline rate-related processes, reduce manual intervention, and improve accuracy.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id=".NET 8">
+  <data key="d0">.NET 8</data>
+  <data key="d1">category</data>
+  <data key="d2">.NET 8 is a robust enterprise-grade framework used for backend development in Rates Hub, providing strong API integration capabilities.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="PostgreSQL">
+  <data key="d0">PostgreSQL</data>
+  <data key="d1">category</data>
+  <data key="d2">PostgreSQL is an open-source database system used in Rates Hub for reliable storage and efficient handling of time-series data.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="React">
+  <data key="d0">React</data>
+  <data key="d1">category</data>
+  <data key="d2">React is a component-based library used for building dynamic user interfaces in Rates Hub's frontend.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Angular">
+  <data key="d0">Angular</data>
+  <data key="d1">category</data>
+  <data key="d2">Angular is a full-fledged framework considered for Rates Hub's frontend development, offering built-in tools for enterprise applications.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="OAuth 2.0">
+  <data key="d0">OAuth 2.0</data>
+  <data key="d1">category</data>
+  <data key="d2">OAuth 2.0 is an authentication protocol used in Rates Hub for role-based access control, ensuring secure user privileges.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="JWT">
+  <data key="d0">JWT</data>
+  <data key="d1">category</data>
+  <data key="d2">JWT (JSON Web Token) is an authentication method used in Rates Hub for secure role-based access control.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Docker Containers">
+  <data key="d0">Docker Containers</data>
+  <data key="d1">category</data>
+  <data key="d2">Docker Containers are used for deploying Rates Hub on Azure, ensuring scalability and efficient resource management.&lt;SEP&gt;Docker containers are a technology used for deploying applications in isolated environments, ensuring scalability and reliability.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450&lt;SEP&gt;chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Promotional Rates">
+  <data key="d0">Promotional Rates</data>
+  <data key="d1">category</data>
+  <data key="d2">Promotional Rates are special rates defined by Rates Committee Members for specific bank products.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Relationship-Based Pricing">
+  <data key="d0">Relationship-Based Pricing</data>
+  <data key="d1">category</data>
+  <data key="d2">Relationship-Based Pricing refers to customized rates based on customer relationships, managed within Rates Hub.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Balance-Tiered Rates">
+  <data key="d0">Balance-Tiered Rates</data>
+  <data key="d1">category</data>
+  <data key="d2">Balance-Tiered Rates are rates determined based on account balances, managed and approved within Rates Hub.</data>
+  <data key="d3">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id=".NET Worker Service">
+  <data key="d0">.NET Worker Service</data>
+  <data key="d1">category</data>
+  <data key="d2">A .NET worker service is a background task automation framework used for scheduled jobs and daily tasks.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Chart.js">
+  <data key="d0">Chart.js</data>
+  <data key="d1">category</data>
+  <data key="d2">Chart.js is a JavaScript library used for creating interactive charts and visualizations.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Highcharts">
+  <data key="d0">Highcharts</data>
+  <data key="d1">category</data>
+  <data key="d2">Highcharts is a charting library for creating dynamic data visualizations.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Rechart">
+  <data key="d0">Rechart</data>
+  <data key="d1">category</data>
+  <data key="d2">Rechart is a React-based charting library used for building data-driven visualizations.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="MuleSoft API">
+  <data key="d0">MuleSoft API</data>
+  <data key="d1">category</data>
+  <data key="d2">MuleSoft API is an integration platform that facilitates communication between applications and systems.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="FIS Rates Plan">
+  <data key="d0">FIS Rates Plan</data>
+  <data key="d1">category</data>
+  <data key="d2">FIS Rates Plan is a financial system used for managing and exporting adjusted rates.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Synovus">
+  <data key="d0">Synovus</data>
+  <data key="d1">organization</data>
+  <data key="d2">Synovus is a financial services company aiming to modernize its rate management process through the Rates Hub project.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Rates Committee">
+  <data key="d0">Rates Committee</data>
+  <data key="d1">organization</data>
+  <data key="d2">The Rates Committee is a group within Synovus responsible for overseeing rate adjustments and management.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Backend">
+  <data key="d0">Backend</data>
+  <data key="d1">category</data>
+  <data key="d2">The backend is the server-side architecture of the system, responsible for handling API endpoints, scheduled tasks, database operations, and business logic.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Frontend">
+  <data key="d0">Frontend</data>
+  <data key="d1">category</data>
+  <data key="d2">The frontend is the user-facing part of the system, including dashboards, historical data views, web forms, and export functionalities.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Integration Layer">
+  <data key="d0">Integration Layer</data>
+  <data key="d1">category</data>
+  <data key="d2">The integration layer facilitates communication between the system and third-party applications via MuleSoft.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Database Schema">
+  <data key="d0">Database Schema</data>
+  <data key="d1">category</data>
+  <data key="d2">The database schema is designed to store rates, including attributes like timestamp, rate type, value, adjusted value, user ID, and audit logs.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Scheduled Task">
+  <data key="d0">Scheduled Task</data>
+  <data key="d1">category</data>
+  <data key="d2">Scheduled tasks are automated processes, such as daily rate retrieval, implemented using .NET worker services.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Dashboard">
+  <data key="d0">Dashboard</data>
+  <data key="d1">category</data>
+  <data key="d2">The dashboard is a frontend feature that displays daily rates with filters for date range and rate type.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Historical Data View">
+  <data key="d0">Historical Data View</data>
+  <data key="d1">category</data>
+  <data key="d2">The historical data view is a frontend feature that provides charts and filters for analyzing past rates.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Web Form">
+  <data key="d0">Web Form</data>
+  <data key="d1">category</data>
+  <data key="d2">The web form is a frontend feature that allows users to adjust rates with role-based access controls.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Error Handling">
+  <data key="d0">Error Handling</data>
+  <data key="d1">category</data>
+  <data key="d2">Error handling is a system feature that ensures graceful recovery from API failures, including retry mechanisms and alerts.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Role-Based Access Controls">
+  <data key="d0">Role-Based Access Controls</data>
+  <data key="d1">category</data>
+  <data key="d2">Role-based access controls are security measures that restrict system functionalities based on user roles, such as viewer, editor, and admin.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Phase 1: Requirements and Setup">
+  <data key="d0">Phase 1: Requirements and Setup</data>
+  <data key="d1">event</data>
+  <data key="d2">Phase 1 involves discovery, architecture design, and environment setup for the project.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Phase 2: Core Development">
+  <data key="d0">Phase 2: Core Development</data>
+  <data key="d1">event</data>
+  <data key="d2">Phase 2 focuses on backend and frontend development, including API integration and database setup.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Phase 3: Testing and Integration">
+  <data key="d0">Phase 3: Testing and Integration</data>
+  <data key="d1">event</data>
+  <data key="d2">Phase 3 includes testing, quality assurance, user acceptance testing, and platform integrations.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Phase 4: Deployment and Training">
+  <data key="d0">Phase 4: Deployment and Training</data>
+  <data key="d1">event</data>
+  <data key="d2">Phase 4 involves deploying the system, training users, and going live.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Rates Management Process">
+  <data key="d0">Rates Management Process</data>
+  <data key="d1">category</data>
+  <data key="d2">The rates management process refers to the system's ability to handle rate retrieval, adjustments, and integration.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Scalability">
+  <data key="d0">Scalability</data>
+  <data key="d1">category</data>
+  <data key="d2">Scalability refers to the system's ability to handle increased workloads efficiently, supported by technologies like Docker and Azure.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<node id="Security">
+  <data key="d0">Security</data>
+  <data key="d1">category</data>
+  <data key="d2">Security measures include role-based access controls and error handling to ensure safe and reliable system operations.</data>
+  <data key="d3">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d4">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d5">1752657053</data>
+</node>
+<edge source="Rates Hub" target="Rates Committee Members">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub provides a secure portal for Rates Committee Members to set, approve, and publish rates.</data>
+  <data key="d8">rate approval,secure access</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Branch Bankers">
+  <data key="d6">16.0</data>
+  <data key="d7">Branch bankers interact with the Rates Hub for daily rate-related tasks.&lt;SEP&gt;Rates Hub enables Branch Bankers to view daily rate cards tailored to their branch and region.</data>
+  <data key="d8">rate distribution,rate management,user access,user interaction</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450&lt;SEP&gt;chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="FIS Core Banking Platform">
+  <data key="d6">19.0</data>
+  <data key="d7">Rates Hub integrates seamlessly with the FIS Core Banking Platform for real-time rate updates.&lt;SEP&gt;Rates Hub integrates with the FIS Core Banking Platform to provide real-time rates.</data>
+  <data key="d8">integration,real-time access,real-time data,system integration</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450&lt;SEP&gt;chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="MuleSoft">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub uses MuleSoft for API integration with the FIS Core Banking Platform and third-party systems.</data>
+  <data key="d8">API integration,system connectivity</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Excel-Based Process">
+  <data key="d6">10.0</data>
+  <data key="d7">Rates Hub replaces the manual Excel-Based Process to improve efficiency and reduce errors.</data>
+  <data key="d8">automation,process improvement</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Automation of Rates Management">
+  <data key="d6">10.0</data>
+  <data key="d7">Rates Hub is the solution driving the automation of rates management.</data>
+  <data key="d8">automation,operational efficiency</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Azure">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub will be deployed on Azure for scalability and reliability.</data>
+  <data key="d8">cloud deployment,scalability</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="10Y Treasury">
+  <data key="d6">7.0</data>
+  <data key="d7">Rates Hub fetches the 10Y Treasury rate as part of its index rate management.</data>
+  <data key="d8">financial data,index rate integration</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="20Y Treasury">
+  <data key="d6">7.0</data>
+  <data key="d7">Rates Hub fetches the 20Y Treasury rate for use in financial operations.</data>
+  <data key="d8">financial data,index rate integration</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Automation Of Rates Management">
+  <data key="d6">10.0</data>
+  <data key="d7">Rates Hub is the solution driving the automation of rates management, addressing inefficiencies and improving accuracy.</data>
+  <data key="d8">automation,operational efficiency</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target=".NET 8">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub uses .NET 8 for backend development, ensuring robust API integration and enterprise-grade functionality.</data>
+  <data key="d8">API integration,backend development</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="PostgreSQL">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub uses PostgreSQL for reliable storage and efficient handling of time-series data.</data>
+  <data key="d8">data reliability,database management</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="React">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub uses React for building dynamic user interfaces in its frontend.</data>
+  <data key="d8">frontend development,user interface</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Angular">
+  <data key="d6">7.0</data>
+  <data key="d7">Angular is considered as an alternative for frontend development in Rates Hub, offering enterprise-level tools.</data>
+  <data key="d8">enterprise tools,frontend development</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="OAuth 2.0">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub uses OAuth 2.0 for secure role-based access control, ensuring proper user privileges.</data>
+  <data key="d8">authentication,security</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="JWT">
+  <data key="d6">9.0</data>
+  <data key="d7">Rates Hub uses JWT for secure role-based access control, ensuring proper user privileges.</data>
+  <data key="d8">authentication,security</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Docker Containers">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub uses Docker Containers for deployment on Azure, ensuring scalability and efficient resource management.</data>
+  <data key="d8">deployment,scalability</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Promotional Rates">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub allows Rates Committee Members to define and manage promotional rates for specific bank products.</data>
+  <data key="d8">promotional offers,rate customization</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Relationship-Based Pricing">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub enables the management of relationship-based pricing, offering customized rates based on customer relationships.</data>
+  <data key="d8">customer relationships,rate customization</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Balance-Tiered Rates">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub facilitates the management and approval of balance-tiered rates based on account balances.</data>
+  <data key="d8">account-based pricing,rate customization</data>
+  <data key="d9">chunk-ee1213ffa17ffc41a07e252f9584c450</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target=".NET Worker Service">
+  <data key="d6">8.0</data>
+  <data key="d7">.NET Worker Service automates daily tasks and scheduled jobs within the Rates Hub system.</data>
+  <data key="d8">automation,task scheduling</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Chart.js">
+  <data key="d6">7.0</data>
+  <data key="d7">Chart.js is used in the Rates Hub frontend for creating interactive charts to display historical data.</data>
+  <data key="d8">data visualization,frontend development</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Highcharts">
+  <data key="d6">7.0</data>
+  <data key="d7">Highcharts is an alternative library used for visualizing historical rate data in the Rates Hub system.</data>
+  <data key="d8">data visualization,frontend development</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Rechart">
+  <data key="d6">7.0</data>
+  <data key="d7">Rechart is a React-based library used for building charts in the Rates Hub frontend.</data>
+  <data key="d8">React integration,data visualization</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="MuleSoft API">
+  <data key="d6">9.0</data>
+  <data key="d7">MuleSoft API facilitates integration between Rates Hub and external systems for exporting adjusted rates.</data>
+  <data key="d8">data export,integration</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="FIS Rates Plan">
+  <data key="d6">8.0</data>
+  <data key="d7">Rates Hub exports adjusted rates to the FIS Rates Plan in the required format.</data>
+  <data key="d8">data export,rate management</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Synovus">
+  <data key="d6">10.0</data>
+  <data key="d7">Synovus is implementing the Rates Hub to modernize its rate management process.</data>
+  <data key="d8">modernization,system implementation</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Rates Committee">
+  <data key="d6">9.0</data>
+  <data key="d7">The Rates Committee uses the Rates Hub to oversee rate adjustments and management.</data>
+  <data key="d8">rate oversight,system usage</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Rates Hub" target="Rates Management Process">
+  <data key="d6">10.0</data>
+  <data key="d7">Rates Hub is designed to modernize and centralize the rates management process.</data>
+  <data key="d8">process improvement,system modernization</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Azure" target="Docker Containers">
+  <data key="d6">9.0</data>
+  <data key="d7">Docker containers are deployed on Azure to ensure scalability and reliability of the system.</data>
+  <data key="d8">deployment,scalability</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Azure" target="Scalability">
+  <data key="d6">9.0</data>
+  <data key="d7">Azure provides the cloud infrastructure needed for scalable system operations.</data>
+  <data key="d8">cloud computing,scalability</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Docker Containers" target="Scalability">
+  <data key="d6">9.0</data>
+  <data key="d7">Docker containers contribute to the system's scalability by enabling efficient deployment and resource management.</data>
+  <data key="d8">deployment,scalability</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="MuleSoft API" target="Integration Layer">
+  <data key="d6">9.0</data>
+  <data key="d7">The integration layer uses MuleSoft API to enable communication between the system and third-party applications.</data>
+  <data key="d8">external communication,system integration</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Backend" target="Frontend">
+  <data key="d6">9.0</data>
+  <data key="d7">The backend supports the frontend by providing API endpoints and business logic for user-facing features like dashboards and web forms.</data>
+  <data key="d8">interdependence,system architecture</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Backend" target="Database Schema">
+  <data key="d6">8.0</data>
+  <data key="d7">The backend interacts with the database schema to store and retrieve rate-related data.</data>
+  <data key="d8">backend operations,data storage</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Backend" target="Error Handling">
+  <data key="d6">8.0</data>
+  <data key="d7">Error handling is implemented in the backend to manage API failures and ensure system reliability.</data>
+  <data key="d8">backend functionality,system reliability</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Dashboard" target="Historical Data View">
+  <data key="d6">7.0</data>
+  <data key="d7">The dashboard and historical data view are frontend features that provide users with insights into daily and past rates.</data>
+  <data key="d8">data visualization,user interface</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Web Form" target="Role-Based Access Controls">
+  <data key="d6">8.0</data>
+  <data key="d7">The web form uses role-based access controls to ensure that only authorized users can adjust rates.</data>
+  <data key="d8">security,user permissions</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Role-Based Access Controls" target="Security">
+  <data key="d6">8.0</data>
+  <data key="d7">Role-based access controls are a key security feature to ensure safe system operations.</data>
+  <data key="d8">security measures,user permissions</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Phase 1: Requirements and Setup" target="Phase 2: Core Development">
+  <data key="d6">9.0</data>
+  <data key="d7">Phase 1 lays the groundwork for Phase 2, which involves developing the core system components.</data>
+  <data key="d8">development stages,project planning</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+<edge source="Phase 3: Testing and Integration" target="Phase 4: Deployment and Training">
+  <data key="d6">9.0</data>
+  <data key="d7">Phase 3 ensures the system is ready for Phase 4, where it is deployed and users are trained.</data>
+  <data key="d8">project progression,system readiness</data>
+  <data key="d9">chunk-0fb258b4529ff68ce1928b2ebe9a514b</data>
+  <data key="d10">./data/PM/Project\rateus hub requirements.txt</data>
+  <data key="d11">1752657053</data>
+</edge>
+</graph></graphml>

@@ -28,7 +28,7 @@ MANIFEST
 
 # ignore the storage and inner working directires of it
 storage/
-src/memory/lightrag/data/
+# src/memory/lightrag/data/
 
 
 # PyInstaller

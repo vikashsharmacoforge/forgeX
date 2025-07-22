@@ -1,0 +1,427 @@
+User Story - Definition of Ready (DoR)
+1. Story is Well-Formed
+o Follows INVEST criteria 
+(Independent, Negotiable, Valuable, Estimable, Small, Testable).
+o Written in the format:
+“As a [role], I want [activity] so that [business value].”
+2. Acceptance Criteria are Defined
+o Clear, testable, and aligned with SAFe's Built-In Quality.
+o Use BDD format (Given / When / Then) where possible.
+3. Business Value and Context are Clear
+o Story is traceable to a Feature in the Program Backlog.
+o Stakeholder and customer value are understood and documented.
+4. Capacity and Enablers Considered
+o Any necessary Enabler Stories (e.g., for architecture, compliance, or infrastructure
+) are identified and planned.
+o The story fits within the team Iteration capacity.
+5. Dependencies Identified and Addressed
+o Cross-team or cross-ART dependencies are visible on the Program Board.
+o Coordination with System Architect, Product Management, or other teams is 
+complete. 
+6. No Blockers Remain
+o Story has no unresolved risks or impediments that would prevent it from being pu
+lled into the Iteration.
+7. UX/Design/Compliance Inputs Reviewed (if applicable)
+o UI mockups, regulatory constraints, and design guidelines are attached if relevant.
+8. Acceptance by Product Owner
+o Product Owner has reviewed and accepted the story into the Team Backlog as par
+t of backlog refinement.
+9. Testable and confirmed by QA
+o Defined acceptance criteria ensure testability.
+o Quality assurance or test engineers confirm they can validate the story within the
+sprint.
+10. Effort is Estimated
+o The team has provided a story point estimate via Planning Poker or other consens
+us-based estimation.
+Feature - Definition of Ready (DoR)
+A Feature is considered “Ready” to be pulled into a Program Increment (PI) or 
+implemented by an Agile Release Train (ART) when it meets the following criteria:
+1. Well-Defined Title and Description
+a. Feature has a clear, concise title.
+b. Description uses the standard format:
+c. “As a [role], I want [capability], so that [benefit].”
+2. Business Value is Identified
+a. The Feature clearly articulates business or customer value.
+b. Associated with a business driver, OKR, or strategic theme.
+3. Acceptance Criteria are Defined
+a. Acceptance criteria follow Given/When/Then or equivalent format.
+b. Must be testable and verifiable at the feature level.
+4. Sized to Fit Within a PI
+a. Can be completed within a single Program Increment (typically 2–3 
+months).
+b. Further decomposed into smaller user stories during backlog refinement.
+5. Prioritized and Approved by Product Management
+a. Product Management has reviewed and prioritized the feature in the 
+Program Backlog.
+b. Business Owners or stakeholders have reviewed and support the value 
+case.
+6. Dependencies are Identified
+a. Cross-team and cross-ART dependencies are documented.
+b. Coordination with external systems, teams, or vendors is planned.
+7. Non-Functional Requirements are Considered
+a. Performance, security, compliance, and scalability constraints are noted 
+if relevant.
+8. Design and UX Artifacts are Available (if applicable)
+a. UX wireframes, mockups, or prototypes are provided and approved by 
+stakeholders.
+b. System Architect/Engineering has reviewed technical feasibility if 
+applicable.
+9. Test and Validation Approach is Agreed
+a. Preliminary test strategy is defined.
+b. Teams agree the feature is testable and can be validated within the PI.
+10.Feature is Linked to Capabilities or Enablers (if applicable)
+a. The Feature is traceable to higher-level Capabilities or Epics.
+b. Supporting Enabler Features are identified and aligned.
+11.Effort is Estimated
+a. T-shirt size or story point estimate provided by involved teams or ARTs.
+12.Feature is Socialized Across Teams
+a. Feature has been reviewed in backlog refinement or PI planning prep 
+meetings.
+b. ART leadership (RTE, Product Manager, System Architect) is aware and 
+aligned. 
+Epic - Definition of Ready
+An Epic is a large, cross-cutting business or technical initiative that typically spans 
+multiple Agile Release Trains (ARTs) and Program Increments (PIs). It must meet the 
+following criteria before it is approved for implementation:
+1. Epic Hypothesis Statement is Clearly Defined
+a. Follows the Epic format:
+b. “We believe that [capability] will result in [measurable benefit]. We will 
+know we are successful when [leading indicator or KPI].”
+2. Business Outcome and Strategic Fit Are Identified
+a. Clearly aligned to:
+b. Strategic themes
+c. OKRs
+d. Portfolio vision
+e. Expected business outcome is measurable and articulated.
+3. Epic Owner Is Assigned
+a. A designated Epic Owner is responsible for shepherding the epic through 
+the Portfolio Kanban system.
+4. Initial Lean Business Case Is Created
+a. Contains:
+a. Problem statement
+b. Business and customer impact
+c. Success criteria
+d. Cost of delay
+e. Forecasted MVP scope and cost
+b. Approved or in review by Lean Portfolio Management (LPM).
+5. Enablers and Dependencies Identified
+a. Supporting Enabler Epics or architectural work are noted.
+b. Cross-ART or cross-vendor dependencies documented.
+c. Reviewed by Enterprise or Solution Architect if applicable.
+6. Investment Guardrails and Budget Impact Understood
+a. Complies with portfolio-level guardrails (e.g., budget caps, capacity 
+allocations).
+b. Initial cost estimate fits within portfolio boundaries.
+7. MVP Scope Identified
+a. Clear definition of the Minimum Viable Product (MVP).
+b. Describes the smallest value delivery that can validate the hypothesis.
+8. Initial Capability and Feature Breakdown Started
+a. High-level Capabilities and Features identified or outlined for 
+decomposition.
+b. Prepared for Value Stream coordination or WSJF estimation.
+9. Review and Agreement from Key Stakeholders
+a. Relevant stakeholders have reviewed and aligned on:
+a. Value hypothesis
+b. MVP
+c. Risks and assumptions
+10.Approved to Enter the Portfolio Backlog
+a. Ready to transition from Funnel → Analyzing → Backlog stage in 
+the SAFe Portfolio Kanban.
+b. Reviewed in Portfolio Sync or Epic Review Board. 
+INVEST Criteria for Story Writing
+INVEST Breakdown
+Letter Stands for Breakdown
+I Independent The story should be self-contained. It should not depend on another 
+story to be developed or delivered.
+N Negotiable The story is not a contract; it's a placeholder for conversation and can 
+be refined or adjusted during discussions.
+V Valuable The story must deliver value to the customer, end user, or business 
+(even if it's an internal technical story).
+E Estimable The team must be able to estimate the effort required, even if only 
+roughly. Lack of clarity or dependencies hinders this.
+S Small The story should be small enough to be completed in a single sprint
+T Testable There must be clear acceptance criteria so the team can test and 
+confirm the story is complete and works as expected
+Deep Dive into Each Element
+I – Independent
+o Stories should not be tightly coupled.
+o This enables parallel development and flexible prioritization.
+o Avoid: “Story B can’t be started until Story A is done.”
+o Tip: If stories are dependent, consider combining them or adjusting their scope.
+N – Negotiable
+o Stories should invite collaboration and refinement.
+o They are not detailed specs — they are conversation starters.
+o Stakeholders, developers, and testers refine stories together during backlog grooming 
+or planning.
+o Tip: Leave room for refinement, especially in early stages.
+V – Valuable
+o The story must clearly explain who benefits and how.
+o Helps Product Owners prioritize work by ROI.
+o Even technical stories should map to business value (e.g., improving performance, 
+enabling faster delivery).
+o Tip: Use the format:
+o “As a [role], I want [story] so that [benefit].”
+E – Estimable
+o The team must have enough information to size the story.
+o If not, it may need spikes, prototypes, or clarification.
+o Estimation helps with capacity planning and velocity tracking.
+o Tip: If you can't estimate it, you probably don’t understand it well enough yet.
+S – Small
+o Stories should be small enough to fit into a single sprint.
+o If too large, break into vertical slices (e.g., UI + backend + integration for one use 
+case).
+o Tip: A typical story should take 1–3 days of effort. If it's longer, split it while 
+preserving value.
+T – Testable
+o There must be clear acceptance criteria.
+o This enables definition of done, QA testing, and stakeholder validation.
+o Ideally written using Given/When/Then or a checklist.
+o Tip: If it can’t be tested, it can’t be considered done.
+Behavior Driven Development (BDD)
+• What is Behavior-Driven Development (BDD)?
+o Behavior-Driven Development (BDD) is an Agile software development practice 
+that emphasizes collaboration between business stakeholders, developers, and 
+testers to define the expected behavior of a system using concrete examples in 
+plain language.
+o BDD extends Test-Driven Development (TDD) by shifting the focus from testing 
+implementation to specifying behavior, ensuring alignment between technical 
+teams and business needs.
+• Core Concepts of BDD
+o Ubiquitous Language
+▪ A common vocabulary used by developers, testers, and business analysts.
+▪ Based on the domain model and used consistently in requirements, code, 
+and tests.
+o Examples and Scenarios
+▪ Behavior is described through concrete, real-world examples.
+▪ These examples are formatted into structured scenarios using Gherkin 
+syntax.
+o Executable Specifications
+▪ The behavior examples become automated tests.
+▪ They serve as both documentation and regression tests.
+BDD Process (End-to-End)
+1. Discovery – Understand Desired Behavior
+a. Conducted as a collaborative discussion (often called a “Three Amigos” meeting).
+b. Participants: Product Owner (or BA), Developer, Tester.
+c. Goal: Clarify requirements and uncover edge cases.
+d. Output: Shared understanding + candidate scenarios.
+2. Formulation – Write Scenarios
+a. Scenarios are expressed in Gherkin syntax, which uses:
+Feature: <high-level capability>
+Scenario: <specific case>
+Given <precondition>
+When <action or event>
+Then <expected outcome>
+3. Automation – Make It Executable
+a. The Given/When/Then steps are mapped to code functions using BDD tools.
+b. Each step is tied to actual system behavior (methods or service calls).
+c. Tools parse the Gherkin file and execute the mapped step definitions.
+4. Development – Write Code to Pass Scenarios
+a. Developers implement just enough code to make the scenario pass.
+b. Tests drive the design of the system by focusing on desired behavior
+5. Validation and Continuous Integration
+a. BDD scenarios are integrated into the CI/CD pipeline.
+BDD in SAFe (Scaled Agile Framework)
+1. BDD complements Agile Teams, ARTs, and PI Planning by:
+2. Supporting Built-In Quality.
+3. Ensuring that User Stories and Enablers are validated early.
+4. Enhancing Test-First and Continuous Delivery pipelines.
+5. Can be tied to Acceptance Test-Driven Development (ATDD).
+Weighted Shortest Job First (WSJF)
+WSJF is a prioritization model used to sequence jobs (e.g., Features, Capabilities, Epics) based 
+on the cost of delay (CoD) and the duration it takes to complete them. It helps Agile teams and 
+organizations deliver the maximum economic benefit in the shortest possible time.
+It is calculated using the following formula:
+WSJF = Cost of Delay / Job Duration
+Where:
+o Cost of Delay (CoD) = User/Business Value + Time Criticality + Risk Reduction and/or 
+Opportunity Enablement
+o Job Duration = Estimated size or effort (e.g., in story points or team weeks)
+Breakdown of WSJF Components
+1. User/Business Value
+a. How much value the job delivers to the customer or business
+b. Often scored on a relative scale (e.g., Fibonacci 1,2,3,5,8,13,21,…)
+2. Time Criticality
+a. How important it is to deliver the job soon (e.g., regulatory deadline, market window)
+3. Risk Reduction / Opportunity Enablement
+a. Will this job reduce future risk or enable new business opportunities?
+Together, these three form the numerator: Cost of Delay
+4. Job Size (Duration)
+a. Estimate of the effort required to complete the work
+b. Should be consistent across jobs (e.g., story points, team weeks)
+c. Smaller jobs generally get a higher WSJF (other factors equal)
+Normalized Story Points Definition
+Normalized Story Points are a relative estimation technique used by Agile teams to size 
+user stories based on effort, complexity, and risk — standardized across teams using a 
+shared baseline. When using the Fibonacci sequence and defining 1 Story Point = 1 ideal 
+day, the scale provides a structured way to estimate work based on increasing uncertainty.
+Effort Mapping (1 SP = 1 Day)
+Story Points Equivalent Effort Typical Use Case
+1 1 Day Very simple task, trivial logic
+2 2 Days Straightforward story with low risk
+3 3 Days Moderate complexity, no major unknowns
+5 5 Days (1 Week) More complex, may involve integration or testing
+8 8 days (2 Weeks) Cross-functional, may include edge cases or rework
+13 13+ days (3 Weeks) High complexity or many unknowns; often a 
+candidate for splitting
+21 21+ days (1 PI) Typically, too large — should be decomposed
+Relative Story Points Definition
+Relative Story Point Estimation is a method used by Agile teams to estimate the effort, 
+complexity, and risk of a user story by comparing it to other stories — rather than assigning 
+absolute time values.
+When using the Fibonacci sequence (1, 2, 3, 5, 8, 13, 21), each number reflects a nonlinear increase in size and uncertainty, helping teams manage complexity effectively.
+Fibonacci Sequence for Agile Estimation
+1, 2, 3, 5, 8, 13, 21
+These values are used because:
+o They reflect increasing uncertainty as story size grows.
+o The gap between values grows, discouraging over-precision.
+o They encourage breaking down large work items.
+What "Relative" Means
+Rather than assigning absolute time (e.g., hours/days), teams compare stories:
+o "Is this story twice as complex as that 3-point story? Then it's probably a 5."
+o "This one is about the same size as another 2-point story."
+o This method relies on team calibration and collective estimation, not individual 
+opinions.
+Interpretation of Fibonacci-Based Story Points
+Story Points Relative Meaning Typical Characteristics
+1 Smallest possible story (reference) Trivial task, very low risk
+2 Slightly more complex Simple logic or UI, few edge cases
+3 Moderate complexity Some unknowns, basic integration
+5 High complexity or more steps Cross-functional, integration or 
+testing effort
+8 Very complex Requires coordination, risk of 
+rework
+13 Extremely complex, too large for 
+sprint
+Should be split, significant 
+unknowns
+21 Unclear or epic-level Almost certainly needs 
+decomposition
+Design Thinking Definition
+Design Thinking is a human-centered, iterative problem-solving approach used to 
+understand user needs, redefine problems, and create innovative solutions. It emphasizes 
+empathy, creativity, and experimentation to solve complex challenges in a user-focused 
+way.
+Design Thinking integrates the needs of people, the possibilities of technology, and the 
+requirements for business success.
+Core Principles of Design Thinking
+o Human-centered: Focus on real user needs.
+o Iterative: Continuously refine ideas and solutions.
+o Collaborative: Involves cross-functional teams and stakeholders.
+o Experimental: Encourages rapid prototyping and learning from failure.
+Design Thinking Process Steps
+While there are multiple models, the most commonly used (from Stanford d.school and 
+IDEO) includes 5 stages:
+1. Empathize
+Goal: Understand users, their environment, and their challenges.
+o Engage with users through interviews, observation, shadowing.
+o Discover emotional drivers, pain points, and hidden needs.
+o Avoid assumptions — seek deep empathy.
+Tools: User interviews, empathy maps, journey mapping
+2. Define
+Goal: Clearly articulate the problem to be solved.
+o Synthesize insights gathered during empathy.
+o Frame the problem as a point of view (POV) statement:
+o “[User] needs a way to [need] because [insight].”
+Tools: Problem statements, affinity diagrams, “How Might We” questions
+3. Ideate 
+Goal: Generate a wide range of creative solutions.
+o Encourage divergent thinking — quantity over quality first.
+o Use brainstorming, mind mapping, or sketching to explore ideas.
+o No judgment — build on each other’s ideas.
+Tools: Brainstorming, SCAMPER, mind maps
+4. Prototype 
+Goal: Build low-fidelity versions of ideas to explore and validate them.
+o Create rough, fast, inexpensive models of solutions.
+o Could be paper sketches, wireframes, mockups, or physical models.
+o The aim is to learn, not to perfect.
+Tools: Paper prototypes, clickable mockups, 3D models
+5. Test 
+Goal: Gather feedback from real users to refine the solution.
+o Observe users interacting with the prototype.
+o Ask open-ended questions, look for pain points or confusion.
+o Refine based on feedback — possibly return to earlier steps.
+Tools: Usability tests, A/B testing, feedback surveys
+Iterative Nature
+Design Thinking is non-linear. You may jump between steps:
+o Go back to Empathize after a failed test.
+o Reframe the Define phase after deeper insights emerge.
+o Rapidly prototype and test to validate multiple ideas.
+Use Cases of Design Thinking
+o Product and service innovation
+o Customer experience redesign
+o Business model development
+o Organizational change initiatives
+Persona Definition
+A persona is a semi-fictional representation of a specific type of user or customer based on 
+real-world data, research, and behavior patterns. Personas help teams understand the 
+goals, needs, motivations, pain points, and behaviors of their target audience.
+They are commonly used in:
+o User experience (UX) design
+o Product development
+o Marketing
+o Agile frameworks (e.g., SAFe, Scrum, Design Thinking)
+Key Characteristics of a Persona
+Element Description
+Name A realistic name that personalizes the profile
+Demographics Age, location, job title, income, education, etc.
+Goals and Objectives What the persona is trying to achieve
+Pain Points Frustrations, blockers, or challenges
+Behaviors How they interact with your product or service
+Tools/Devices Platforms or devices they commonly use
+Quotes or Mindset Key expressions or attitudes that capture their thinking
+Example Persona (for a productivity app)
+Name: Sarah Martinez
+Role: Project Manager
+Age: 34
+Goals:
+o Keep team projects on schedule
+o Reduce meeting time
+o Improve cross-team visibility
+Pain Points:
+o Tool overload
+o Difficult onboarding for new team members
+o Poor integration with reporting systems
+Quote:
+"I need tools that help my team get work done, not add more work."
+Why Personas Matter
+o Build empathy with real users
+o Drive design and development decisions
+o Guide feature prioritization and product roadmaps
+o Improve marketing messaging and user onboarding
+o Align teams around a shared understanding of the user
+Best Practices
+o Base personas on qualitative and quantitative research (not assumptions)
+o Keep them focused and realistic (avoid generic catch-all personas)
+o Use multiple personas if your product serves different user types
+o Update personas periodically as you gather more data
+Persona Template
+Basic Information
+o Name: (e.g., Sarah Martinez)
+o Photo: (Optional placeholder or avatar)
+o Job Title / Role:
+o Company / Industry:
+o Age:
+o Location:
+Goals and Objectives
+o What are this persona’s key goals?
+o Goal 1
+o Goal 2
+o Goal 3
+Pain Points / Challenges
+o What frustrates this user?
+o Pain Point 1
+o Pain Point 2
+o Pain Point 3
+Behaviors and Attitudes
+o What is their attitude toward your product, technology, or topic?
+o What influences their decisions?
+o What tools or systems do they currently use?
+Quote / Key Insight
+A direct quote or summary that captures their mindset, needs, or frustration.
+Technology Use
+o Devices: (e.g., Laptop, smartphone, tablet)
+o Tools/Software: (e.g., Slack, Jira, Excel, Salesforce)
+o Skill Level: (e.g., Basic, Intermediate, Advanced)
+Motivations and Expectations
+o What drives them to adopt or avoid a product?
+o What are their expectations from the product or service?
